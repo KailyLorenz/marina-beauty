@@ -70,7 +70,7 @@ export default function ConcernsSection() {
             <span className="mc-explain__video-top">ВИДЕО / РАЗБОР НА МОДЕЛИ</span>
             <span className="mc-explain__video-caption">Почему меняется лицо? <small>Смотреть объяснение ↗</small></span>
           </button>
-          <p className="mc-explain__video-footnote">Реальный фрагмент занятия с объяснением — без постановочной фотографии Марины.</p>
+          {/* <p className="mc-explain__video-footnote">Реальный фрагмент занятия с объяснением — без постановочной фотографии Марины.</p> */}
         </motion.div>
       </div>
 
