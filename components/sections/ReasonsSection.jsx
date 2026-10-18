@@ -31,7 +31,7 @@ export default function ReasonsSection() {
     <section className="ed-reasons" id="reasons" aria-labelledby="ed-reasons-title">
       <div className="ed-reasons__wrap">
         <div className="ed-reasons__head">
-          <p className="ed-kicker">02 / ПОНИМАЕМ ПРИЧИНЫ</p>
+          <p className="ed-kicker">ПОНИМАЕМ ПРИЧИНЫ</p>
           <h2 id="ed-reasons-title">Всё <em>взаимосвязано.</em></h2>
           <p>Не только кожа, но и работа мышц, положение головы и привычки тела могут влиять на внешний вид лица.</p>
         </div>
