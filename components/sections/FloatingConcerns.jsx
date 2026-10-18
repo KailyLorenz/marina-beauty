@@ -71,7 +71,7 @@ export default function FloatingConcerns() {
           animate={visible || reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
           transition={{ duration: 0.65, ease: easeOut }}
         >
-          02 / ЗНАКОМОЕ ОЩУЩЕНИЕ?
+          ЗНАКОМОЕ ОЩУЩЕНИЕ?
         </motion.p>
         <motion.h3
           id="mc-float-title"
