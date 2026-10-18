@@ -41,3 +41,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .ed-kicker { font-size: 10px; }
   .editorial-quote p { font-size: clamp(37px, 11vw, 55px); }
 }
+
+/* Native anchor fallback if JavaScript or Lenis is disabled. */
+html { scroll-padding-top: 76px; }
+html.lenis { scroll-behavior: auto !important; }
+main section[id] { scroll-margin-top: 76px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}

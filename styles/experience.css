@@ -503,3 +503,38 @@ header.exp-header .exp-header__menu-toggle { color:var(--hero-text); }
   .exp-hero__benefits li { gap:4px; padding-inline:4px; }
   .exp-hero__benefits li svg { flex-basis:17px; width:17px; height:17px; }
 }
+
+
+/* --------------------------------------------------------------
+   Visible but refined scroll parallax: portrait moves slower than
+   the page; copy and benefits form two other depth planes.
+   Hook: useHeroParallax() in HeroSection.jsx.
+   -------------------------------------------------------------- */
+.exp-hero__portrait img {
+  transform: translate3d(0, var(--hero-photo-shift, 0px), 0) scale(1.075);
+  transform-origin: center center;
+  will-change: transform;
+}
+.exp-hero__copy {
+  transform: translate3d(0, var(--hero-copy-shift, 0px), 0);
+  opacity: var(--hero-copy-opacity, 1);
+  will-change: transform, opacity;
+}
+.exp-hero__benefits {
+  transform: translate3d(0, var(--hero-benefits-shift, 0px), 0);
+  will-change: transform;
+}
+@media (max-width: 600px) {
+  .exp-hero__portrait img {
+    transform: translate3d(0, var(--hero-photo-shift, 0px), 0) scale(1.04);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-hero__portrait img,
+  .exp-hero__copy,
+  .exp-hero__benefits {
+    transform: none !important;
+    opacity: 1 !important;
+    will-change: auto;
+  }
+}

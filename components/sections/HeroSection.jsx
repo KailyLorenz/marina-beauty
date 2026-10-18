@@ -1,3 +1,73 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+
+// A tiny, scroll-linked parallax that only touches CSS variables.
+// No React rerender on scroll and no extra animation dependency.
+function useHeroParallax() {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const hero = ref.current;
+    if (!hero) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const smallScreen = window.matchMedia('(max-width: 600px)');
+    let frame = 0;
+
+    const render = () => {
+      frame = 0;
+
+      if (reduceMotion.matches) {
+        hero.style.removeProperty('--hero-photo-shift');
+        hero.style.removeProperty('--hero-copy-shift');
+        hero.style.removeProperty('--hero-copy-opacity');
+        hero.style.removeProperty('--hero-benefits-shift');
+        return;
+      }
+
+      const rect = hero.getBoundingClientRect();
+      if (rect.top > window.innerHeight || rect.bottom < 0) return;
+
+      // The effect must be visible BEFORE the hero leaves the viewport.
+      // Portrait follows the scroll more slowly; text moves in the opposite direction.
+      // Caps also prevent excessive image crops on tall and narrow displays.
+      const travelled = Math.max(0, Math.min(-rect.top, rect.height));
+      const mobile = smallScreen.matches;
+
+      // Tune only these four numbers to adjust the parallax strength.
+      const photoShift = Math.min(mobile ? 58 : 170, travelled * (mobile ? 0.15 : 0.32));
+      const copyShift = -Math.min(mobile ? 36 : 108, travelled * (mobile ? 0.09 : 0.20));
+      const benefitsShift = -Math.min(mobile ? 12 : 34, travelled * (mobile ? 0.035 : 0.08));
+      const copyOpacity = mobile ? 1 : 1 - Math.min(0.18, travelled / Math.max(rect.height, 1) * 0.18);
+
+      hero.style.setProperty('--hero-photo-shift', `${photoShift.toFixed(2)}px`);
+      hero.style.setProperty('--hero-copy-shift', `${copyShift.toFixed(2)}px`);
+      hero.style.setProperty('--hero-benefits-shift', `${benefitsShift.toFixed(2)}px`);
+      hero.style.setProperty('--hero-copy-opacity', copyOpacity.toFixed(3));
+    };
+
+    const requestFrame = () => {
+      if (frame === 0) frame = window.requestAnimationFrame(render);
+    };
+
+    const motionChanged = () => requestFrame();
+    render();
+    window.addEventListener('scroll', requestFrame, { passive: true });
+    window.addEventListener('resize', requestFrame);
+    reduceMotion.addEventListener?.('change', motionChanged);
+
+    return () => {
+      window.removeEventListener('scroll', requestFrame);
+      window.removeEventListener('resize', requestFrame);
+      reduceMotion.removeEventListener?.('change', motionChanged);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  return ref;
+}
+
 const benefitItems = [
   { title: '15 минут', detail: 'в день', icon: 'clock' },
   { title: 'Пошаговые', detail: 'видеоуроки', icon: 'play' },
@@ -11,8 +81,10 @@ function BenefitIcon({ type }) {
 }
 
 export default function ExperienceHero() {
+  const heroRef = useHeroParallax();
+
   return (
-    <section className="exp-hero" id="top" aria-label="Авторский курс Марины Карпер по работе с лицом">
+    <section ref={heroRef} className="exp-hero" id="top" aria-label="Авторский курс Марины Карпер по работе с лицом">
       <div className="exp-hero__light" aria-hidden="true" />
       <div className="exp-hero__portrait" aria-hidden="true">
         <img src="/images/marina-hero-new.jpg" alt="" width="853" height="1280" fetchPriority="high" />

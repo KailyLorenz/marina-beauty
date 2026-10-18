@@ -3,6 +3,7 @@ import {useRef, useState} from 'react';
 import {siteConfig} from '../config/site';
 import {useScrollReveal} from '../hooks/useScrollReveal';
 import Header from '../components/layout/Header';
+import SmoothScroll from '../components/ui/SmoothScroll';
 import Footer from '../components/layout/Footer';
 import HeroSection from '../components/sections/HeroSection';
 import ConcernsSection from '../components/sections/ConcernsSection';
@@ -36,6 +37,7 @@ export default function Home() {
     dialogRef.current?.showModal();
   }
   return <>
+    <SmoothScroll />
     <Header />
     <main>
       <HeroSection />
