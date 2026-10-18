@@ -62,11 +62,11 @@ export default function AuthorSection() {
           <motion.p className="mk-author__eyebrow" {...appear(0.06)}>06 / ЗНАКОМСТВО</motion.p>
           <motion.p className="mk-author__kicker" {...appear(0.1)}>Автор программы</motion.p>
           <motion.h2 id="mk-author-title" {...appear(0.14)}>
-            Марина <em>Карпер</em>
+            Марина <em>Cарпер</em>
           </motion.h2>
           <motion.div className="mk-author__signature" aria-hidden="true" {...appear(0.18)}>
             <span className="mk-author__signature-rule" />
-            <span className="mk-author__signature-name">Marina Karper</span>
+            <span className="mk-author__signature-name">Marina Carper</span>
           </motion.div>
           <motion.h3 className="mk-author__subtitle" {...appear(0.2)}>
             Эксперт по естественному омоложению лица, шеи и осанки

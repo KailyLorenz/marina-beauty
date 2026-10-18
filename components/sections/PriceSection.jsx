@@ -32,7 +32,7 @@ export default function PriceSection({ openDialog }) {
           <p className="mk-price__lead">Пять недель практики для лица, шеи и осанки — в удобном для вас ритме.</p>
           <div className="mk-price__rule" aria-hidden="true" />
           <p className="mk-price__aside">Начните с малого.<br />Уделите себе 15 минут в день.</p>
-          <span className="mk-price__signature" aria-hidden="true">Marina Karper</span>
+          <span className="mk-price__signature" aria-hidden="true">Marina Carper</span>
         </div>
 
         <div className="mk-price__card">

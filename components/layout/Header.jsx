@@ -58,8 +58,8 @@ export default function ExperienceHeader() {
   return (
       <>
         <header ref={headerRef} className={`exp-header ${compact ? "exp-header--compact" : ""} ${menuOpen ? "exp-header--open" : ""}`}>
-          <a className="exp-header__brand" href="#top" onClick={close} aria-label="Marina Karper — на главную">
-            <span>Marina Karper</span>
+          <a className="exp-header__brand" href="#top" onClick={close} aria-label="Marina Carper — на главную">
+            <span>Marina Carper</span>
           </a>
 
           <button
