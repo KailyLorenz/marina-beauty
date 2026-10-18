@@ -1,0 +1,205 @@
+/*
+  MARINA KARPER — ONE DESIGN SYSTEM, FOUR THEMES
+  ------------------------------------------------
+  DEFAULT:  ice       / Ледяная бирюза
+  OPTION 2: graphite  / Жемчужный графит
+  OPTION 3: orchid    / Ледяная орхидея
+  OPTION 4: taupe     / Cool Taupe Luxury
+
+  Themes are switched by the data-theme attribute on <html>.
+  There should be NO theme hex colors in component CSS: use the semantic tokens.
+
+  HOW TO ADD ANOTHER THEME:
+  1. Copy one of the html[data-theme="..."] blocks below; choose a new ID.
+  2. Add the new ID/label/swatches in config/themes.js.
+  3. Components, cards, buttons, modal, and footer will inherit the theme.
+
+  HOW TO CHANGE DEFAULT:
+  Edit DEFAULT_THEME in config/themes.js. The selector in the footer lets you
+  preview and save a choice locally without changing code.
+*/
+
+:root,
+html[data-theme="ice"] {
+  /* Theme A · Ice Turquoise — default */
+  --paper: #f7f8f7;
+  --white: #ffffff;
+  --surface: #fbfcfb;
+  --ink: #34393c;
+  --muted: #707b81;
+  --secondary: #237985;
+  --secondary-ink: #1d616b;
+  --secondary-soft: #eaf5f5;
+  --sage: #eef3f2;
+  --warm: #f1f3f3;
+  --accent: #dceced;
+  --line: #dfe6e6;
+  --card: #ffffff;
+  --card-selected: #e9f4f4;
+  --price-bg: #e8f1f1;
+  --price-card: #ffffff;
+  --footer-bg: #edf3f3;
+  --overlay-card: rgba(255, 255, 255, .78);
+  --hero-text: #3a3431;
+  --hero-text-soft: #746e69;
+  --hero-highlight: #3a3431;
+  --hero-surface: #efeeee;
+  --hero-wash-rgb: 246, 244, 241;
+  --hero-button-start: #72c9cd;
+  --hero-button-end: #247f8b;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #edf4f4;
+  --hero-aqua: #237985;
+  --hero-aqua-light: #79cbd0;
+  --shadow-color: rgba(33, 72, 78, .10);
+}
+
+html[data-theme="graphite"] {
+  /* Theme B · Pearl Graphite — restrained editorial look */
+  --paper: #f8f8f9;
+  --white: #ffffff;
+  --surface: #fcfcfd;
+  --ink: #333640;
+  --muted: #737987;
+  --secondary: #525f7b;
+  --secondary-ink: #3c4862;
+  --secondary-soft: #eff1f5;
+  --sage: #e9edf2;
+  --warm: #f1f2f5;
+  --accent: #dce1eb;
+  --line: #dfe3eb;
+  --card: #ffffff;
+  --card-selected: #e9edf3;
+  --price-bg: #e6e9ef;
+  --price-card: #ffffff;
+  --footer-bg: #eceff4;
+  --overlay-card: rgba(255, 255, 255, .82);
+  --hero-text: #30333b;
+  --hero-text-soft: #727482;
+  --hero-highlight: #30333b;
+  --hero-surface: #eff0f3;
+  --hero-wash-rgb: 248, 248, 250;
+  --hero-button-start: #8697ad;
+  --hero-button-end: #455574;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #e9edf3;
+  --hero-aqua: #647691;
+  --hero-aqua-light: #afbdd0;
+  --shadow-color: rgba(39, 48, 71, .10);
+}
+
+html[data-theme="orchid"] {
+  /* Theme C · Frost Orchid — feminine but cool, never sugary */
+  --paper: #faf9fb;
+  --white: #ffffff;
+  --surface: #fcfafd;
+  --ink: #36323b;
+  --muted: #7d7585;
+  --secondary: #806888;
+  --secondary-ink: #644e6f;
+  --secondary-soft: #f5eff7;
+  --sage: #f1ebf3;
+  --warm: #f5f1f6;
+  --accent: #e9dfea;
+  --line: #e8e1e9;
+  --card: #ffffff;
+  --card-selected: #f2eaf4;
+  --price-bg: #eee7f0;
+  --price-card: #ffffff;
+  --footer-bg: #f2ecf3;
+  --overlay-card: rgba(255, 255, 255, .82);
+  --hero-text: #37313a;
+  --hero-text-soft: #817987;
+  --hero-highlight: #37313a;
+  --hero-surface: #f3f0f3;
+  --hero-wash-rgb: 250, 247, 250;
+  --hero-button-start: #c0a3cd;
+  --hero-button-end: #80678f;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #f0eaf1;
+  --hero-aqua: #957ca3;
+  --hero-aqua-light: #d7c0df;
+  --shadow-color: rgba(69, 45, 79, .10);
+}
+
+
+/* ------------------------------------------------------------
+ * Theme D · Cool Taupe Luxury
+ * Cool pearl/beige undertone, high contrast espresso typography.
+ * Taupe is used for UI accents; turquoise is reserved for Hero CTA.
+ * ------------------------------------------------------------ */
+html[data-theme="taupe"] {
+  --paper: #f7f5f5;
+  --white: #ffffff;
+  --surface: #fbfafa;
+  --ink: #393239;
+  --muted: #817780;
+  --secondary: #75676f;
+  --secondary-ink: #594c54;
+  --secondary-soft: #f2eeee;
+  --sage: #eeeaeb;
+  --warm: #eae6e6;
+  --accent: #e5dddf;
+  --line: #e4dcdf;
+  --card: #ffffff;
+  --card-selected: #eee9eb;
+  --price-bg: #eae5e7;
+  --price-card: #ffffff;
+  --footer-bg: #f0eced;
+  --overlay-card: rgba(255, 255, 255, .82);
+
+  /* Keep the light photographic Hero, with dark readable text. */
+  --hero-text: #393239;
+  --hero-text-soft: #7d727a;
+  --hero-highlight: #393239;
+  --hero-surface: #f3f0f1;
+  --hero-wash-rgb: 247, 245, 245;
+  --hero-button-start: #69c7cd;
+  --hero-button-end: #247e87;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #f0eced;
+  --hero-aqua: #247e87;
+  --hero-aqua-light: #69c7cd;
+  --shadow-color: rgba(57, 50, 57, .10);
+}
+
+:root {
+  /* Shared aliases used by legacy sections: DO NOT hardcode theme colors there. */
+  --brand-page: var(--paper);
+  --brand-text: var(--ink);
+  --brand-text-muted: var(--muted);
+  --brand-turquoise: var(--secondary);
+  --brand-turquoise-soft: var(--secondary-soft);
+  --brand-turquoise-pale: var(--warm);
+  --brand-border: var(--line);
+  --premium-ivory: var(--paper);
+  --premium-dark: var(--ink);
+  --premium-teal: var(--secondary);
+  --premium-white: var(--white);
+  --premium-muted: var(--muted);
+  --premium-border: var(--line);
+  --premium-radius: 20px;
+  --premium-radius-lg: 26px;
+  --premium-ease: cubic-bezier(.22,1,.36,1);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Manrope', Arial, sans-serif;
+  --font-ui: var(--font-body);
+  --font-script: 'Allura', 'Brush Script MT', cursive;
+  --font-signature: var(--font-script);
+  --motion-out: cubic-bezier(.22,1,.36,1);
+  --motion-ease: cubic-bezier(.22,1,.36,1);
+  --motion-in-out: cubic-bezier(.76,0,.24,1);
+  --hero-navigation-overlay: rgba(var(--hero-wash-rgb), .92);
+  --hero-button-shadow: 0 14px 30px var(--shadow-color);
+  --hero-button-shadow-hover: 0 18px 38px var(--shadow-color);
+  --hero-photo-fade: 21%;
+  --hero-photo-desktop-width: 53%;
+  --hero-photo-desktop-height: 100%;
+  --hero-photo-mobile-width: 94%;
+  --exp-cream: var(--hero-text);
+  --exp-aqua: var(--hero-aqua);
+  --exp-aqua-light: var(--hero-aqua-light);
+  --exp-aqua-course: var(--secondary);
+  --exp-out: var(--motion-out);
+  --exp-ease: var(--motion-in-out);
+}

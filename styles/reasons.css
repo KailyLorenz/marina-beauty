@@ -1,0 +1,83 @@
+/* CAUSES — illustrated educational cards, never a fourth competing photo. */
+.ed-reasons {
+  padding: clamp(75px, 9vw, 130px) 0;
+  background: var(--surface);
+  color: var(--ink);
+  scroll-margin-top: 70px;
+}
+.ed-reasons__wrap { width: min(88%, 1240px); margin: auto; }
+.ed-reasons__head { text-align:center; max-width:750px; margin:0 auto clamp(36px,4vw,56px); }
+.ed-reasons__head h2 {
+  margin:0;
+  font:400 clamp(54px,5.4vw,83px)/.98 var(--font-display);
+  letter-spacing:-.04em;
+}
+.ed-reasons__head h2 em { color:inherit; }
+.ed-reasons__head>p:last-child {
+  max-width:560px;
+  margin:14px auto 0;
+  color:var(--muted);
+  font:400 15px/1.75 var(--font-body);
+}
+.ed-reasons__cards { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px; }
+.ed-reasons__card {
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid var(--line);
+  background:var(--card-selected);
+  transition:transform .35s var(--motion-out),box-shadow .35s;
+}
+.ed-reasons__card:hover { transform:translateY(-4px);box-shadow:0 20px 50px var(--shadow-color); }
+.ed-reasons__image { aspect-ratio:1 / .81; padding:14px; background:var(--card); overflow:hidden; }
+.ed-reasons__image img {
+  width:100%;height:100%;object-fit:contain;
+  display:block;
+  background:#fffdfb;
+  border-radius:16px;
+  transition:transform .55s var(--motion-out);
+}
+.ed-reasons__card:hover img { transform:scale(1.025); }
+.ed-reasons__card-copy { display:flex;flex-direction:column;flex:1;min-height:195px;padding:20px 23px 24px; }
+.ed-reasons__counter { display:flex;align-items:center;gap:16px;color:var(--secondary);font:700 10px/1.3 var(--font-body);letter-spacing:.15em; }
+.ed-reasons__counter span:last-child {flex:1;height:1px;background:var(--line);}
+.ed-reasons__card h3 { margin:18px 0 10px;font:400 clamp(26px,2.15vw,34px)/1.13 var(--font-display);letter-spacing:-.025em; }
+.ed-reasons__card p { margin:auto 0 0;color:var(--muted);font:400 12px/1.75 var(--font-body); }
+.ed-reasons__summary {
+  display:flex;align-items:center;justify-content:space-between;gap:22px;
+  margin-top:25px;
+  padding:24px clamp(24px,3vw,40px);
+  border-radius:20px;
+  background:var(--secondary-soft);
+  border:1px solid var(--line);
+}
+.ed-reasons__summary-label { color:var(--secondary);font:700 10px/1.4 var(--font-body);letter-spacing:.16em; }
+.ed-reasons__summary p { margin:7px 0 0;font:400 clamp(29px,2.8vw,42px)/1.03 var(--font-display);letter-spacing:-.03em; }
+.ed-reasons__summary em { color:var(--ink); }
+.ed-reasons__summary a { flex:0 0 auto;border-radius:999px;padding:13px 20px;background:var(--secondary);color:#fff;font:600 12px/1.3 var(--font-body);transition:transform .25s; }
+.ed-reasons__summary a:hover { transform:translateY(-2px); }
+.ed-reasons__summary a span { margin-left:8px; }
+.ed-reasons__disclaimer { max-width:850px;margin:20px auto 0;text-align:center;font:400 11px/1.75 var(--font-body);color:var(--muted); }
+@media (max-width:930px) {
+  .ed-reasons__cards { gap:12px; }
+  .ed-reasons__image { padding:10px; }
+  .ed-reasons__card-copy { padding:18px 16px 20px; }
+  .ed-reasons__card h3 { font-size:26px; }
+}
+@media (max-width:740px) {
+  .ed-reasons { padding:70px 0; }
+  .ed-reasons__wrap { width:calc(100% - 36px); }
+  .ed-reasons__head { margin-bottom:28px; }
+  .ed-reasons__head h2 { font-size:clamp(46px,10.6vw,64px); }
+  .ed-reasons__head>p:last-child { font-size:14px; }
+  .ed-reasons__cards { grid-template-columns:1fr;gap:16px;max-width:530px;margin-inline:auto; }
+  .ed-reasons__image { aspect-ratio:1.55; padding:12px; }
+  .ed-reasons__card-copy { min-height:0; padding:20px 22px 23px; }
+  .ed-reasons__card h3 { font-size:clamp(29px,7.2vw,36px); }
+  .ed-reasons__card p { font-size:13px; }
+  .ed-reasons__summary { margin-top:20px; padding:23px;flex-direction:column;align-items:start; }
+  .ed-reasons__summary p { font-size:clamp(31px,7.6vw,42px); }
+}
+@media(prefers-reduced-motion:reduce){.ed-reasons__card,.ed-reasons__image img,.ed-reasons__summary a{transition:none;}}

@@ -1,0 +1,36 @@
+.ed-format { padding:clamp(75px,9vw,132px) 0; background:var(--paper); color:var(--ink);scroll-margin-top:70px; }
+.ed-format__wrap { width:min(88%,1240px);margin-inline:auto; }
+.ed-format__head { text-align:center;max-width:700px;margin:0 auto clamp(37px,5vw,61px); }
+.ed-format__head h2 { margin:0;font:400 clamp(49px,5.6vw,81px)/1.01 var(--font-display);letter-spacing:-.045em; }
+.ed-format__head h2 em { color:inherit; }
+.ed-format__head>p:last-child { max-width:530px;margin:15px auto 0;color:var(--muted);font:400 15px/1.7 var(--font-body); }
+.ed-format__grid { display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:17px; }
+.ed-format__visual { min-width:0;position:relative;overflow:hidden;margin:0;border-radius:17px;min-height:510px;background:var(--card-selected); }
+.ed-format__visual img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 36%; }
+.ed-format__visual::after { content:'';position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(35,27,22,.38));pointer-events:none; }
+.ed-format__visual figcaption { position:absolute;bottom:27px;left:25px;right:18px;color:#fff;z-index:1;font:400 clamp(25px,2.2vw,34px)/1.1 var(--font-display); }
+.ed-format__cards { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px; }
+.ed-format__card { display:flex;flex-direction:column;min-width:0;min-height:245px;padding:clamp(22px,2.25vw,32px);border-radius:17px;background:var(--card-selected); }
+.ed-format__card>span { color:var(--secondary);font:600 10px/1.4 var(--font-body);letter-spacing:.15em; }
+.ed-format__card h3 { margin:auto 0 12px;font:400 clamp(25px,2.2vw,32px)/1.15 var(--font-display); }
+.ed-format__card p { margin:0;color:var(--muted);font:400 13px/1.7 var(--font-body); }
+.ed-format__facts { margin-top:24px;padding:24px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;border-top:1px solid var(--line); }
+.ed-format__facts span { font-size:12px;color:var(--muted); }
+.ed-format__facts strong { color:var(--secondary-ink);font:400 32px/1 var(--font-display);margin-right:7px; }
+@media (max-width:930px){ .ed-format__grid{grid-template-columns:1fr}.ed-format__visual{min-height:400px;aspect-ratio:1.6}.ed-format__visual img{object-position:center 38%}.ed-format__card{min-height:220px} }
+@media (max-width:580px){ .ed-format{padding:70px 0}.ed-format__wrap{width:calc(100% - 36px)}.ed-format__head h2{font-size:49px}.ed-format__visual{min-height:340px;aspect-ratio:1.15}.ed-format__cards{gap:10px}.ed-format__card{padding:17px;min-height:215px}.ed-format__card h3{font-size:23px}.ed-format__card p{font-size:12px}.ed-format__facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 10px}.ed-format__facts strong{font-size:31px} }
+@media(max-width:385px){.ed-format__cards{grid-template-columns:1fr}.ed-format__card{min-height:157px}.ed-format__card h3{margin:18px 0 10px}}
+
+.ed-format__platform { text-align:center;margin:25px 0 0;color:var(--muted);font:400 12px/1.6 var(--font-body); }
+
+/* Better mobile rhythm: 1-column informative cards, photo fits on one screen. */
+@media(max-width:620px) {
+  .ed-format__head h2 { font-size:clamp(45px,11vw,60px); }
+  .ed-format__grid { gap:14px; }
+  .ed-format__visual { min-height:0; aspect-ratio:1.18; border-radius:20px; }
+  .ed-format__cards { grid-template-columns:1fr; gap:10px; }
+  .ed-format__card { min-height:0; border-radius:16px; padding:22px; }
+  .ed-format__card h3 { font-size:clamp(28px,7vw,34px); margin:14px 0 8px; }
+  .ed-format__card p { font-size:13px; line-height:1.7; }
+  .ed-format__facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}

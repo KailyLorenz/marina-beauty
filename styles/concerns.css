@@ -1,0 +1,196 @@
+/* MODEL EXPLAINER — isolated section, all palette values from theme.css. */
+.mc-explain {
+  position: relative;
+  padding: clamp(66px, 7vw, 108px) 0;
+  color: var(--ink);
+  background: var(--paper);
+  scroll-margin-top: 76px;
+}
+.mc-explain,
+.mc-explain *,
+.mc-explain *::before,
+.mc-explain *::after { box-sizing: border-box; }
+.mc-explain__container {
+  width: min(88%, 1250px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(320px, .84fr);
+  gap: clamp(42px, 7vw, 110px);
+  align-items: center;
+}
+.mc-explain__copy, .mc-explain__video-col { min-width: 0; }
+.mc-explain__eyebrow {
+  margin: 0 0 26px;
+  color: var(--secondary);
+  font: 700 11px/1.5 var(--font-body);
+  letter-spacing: .18em;
+}
+.mc-explain__copy h2 {
+  margin: 0;
+  max-width: 650px;
+  font: 400 clamp(48px, 5.2vw, 84px)/.98 var(--font-display);
+  letter-spacing: -.048em;
+  text-wrap: balance;
+}
+.mc-explain__copy h2 em {
+  display: block;
+  font-weight: 400;
+  color: var(--ink);
+}
+.mc-explain__lead {
+  max-width: 510px;
+  margin: 26px 0 0;
+  color: var(--muted);
+  font: 400 clamp(15px, 1.15vw, 18px)/1.85 var(--font-body);
+}
+.mc-explain__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 475px;
+  margin-top: 26px;
+}
+.mc-explain__note-line {
+  width: 33px;
+  height: 1px;
+  flex: 0 0 33px;
+  margin-top: 12px;
+  background: var(--secondary);
+}
+.mc-explain__note p { margin: 0; font: 500 14px/1.75 var(--font-body); color: var(--ink); }
+.mc-explain__learn {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 28px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--secondary);
+  font: 600 12px/1.4 var(--font-body);
+  color: var(--secondary-ink);
+  transition: gap .3s ease;
+}
+.mc-explain__learn:hover { gap: 18px; }
+.mc-explain__video-col { width: 100%; max-width: 420px; margin-inline: auto; }
+.mc-explain__video-cover {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.7;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 26px;
+  padding: 0;
+  text-align: left;
+  background: var(--sage);
+  box-shadow: 0 22px 65px var(--shadow-color);
+  isolation: isolate;
+  cursor: pointer;
+}
+.mc-explain__video-cover img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  transition: transform .85s var(--motion-out);
+}
+.mc-explain__video-cover:hover img { transform: scale(1.035); }
+.mc-explain__video-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(15,27,30,.28) 0%, transparent 28%, transparent 42%, rgba(12,20,23,.86) 100%);
+}
+.mc-explain__glass-play {
+  position: absolute;
+  z-index: 3;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(255,255,255,.75);
+  border-radius: 50%;
+  background: rgba(255,255,255,.20);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  backdrop-filter: blur(18px) saturate(120%);
+  color: white;
+  box-shadow: 0 16px 42px rgba(10,20,23,.20);
+  transition: transform .35s ease, background .35s ease;
+}
+.mc-explain__glass-play svg { width: 27px; height: 27px; transform: translateX(2px); }
+.mc-explain__video-cover:hover .mc-explain__glass-play { transform: translate(-50%, -50%) scale(1.08); background: rgba(255,255,255,.28); }
+.mc-explain__video-top {
+  position: absolute;
+  top: 22px; left: 22px; z-index: 2;
+  color: #fff;
+  font: 700 10px/1.4 var(--font-body);
+  letter-spacing: .17em;
+  text-shadow: 0 2px 12px rgba(0,0,0,.22);
+}
+.mc-explain__video-caption {
+  position: absolute;
+  left: 24px; right: 24px; bottom: 24px;
+  z-index: 2;
+  color: #fff;
+  font: 400 clamp(27px, 2.2vw, 35px)/1.04 var(--font-display);
+  letter-spacing: -.035em;
+  text-shadow: 0 2px 15px rgba(0,0,0,.3);
+}
+.mc-explain__video-caption small {
+  display: block;
+  margin-top: 12px;
+  font: 600 11px/1.5 var(--font-body);
+  letter-spacing: .03em;
+}
+.mc-explain__video-footnote {
+  margin: 12px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font: 400 11px/1.6 var(--font-body);
+}
+.mc-explain__dialog {
+  width: min(94vw, 720px);
+  max-height: 94dvh;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 40px 100px rgba(0,0,0,.25);
+}
+.mc-explain__dialog::backdrop { background: rgba(14,21,25,.74); -webkit-backdrop-filter:blur(5px); backdrop-filter:blur(5px); }
+.mc-explain__dialog-inner { padding: 14px; }
+.mc-explain__dialog-head { display: flex; justify-content: space-between; align-items:center; gap: 16px; padding: 0 4px 12px; }
+.mc-explain__dialog-head p { margin: 0; font: 600 13px/1.5 var(--font-body); }
+.mc-explain__dialog-head button { border:0; background:transparent; color:var(--ink); font-size:27px; line-height:1; padding:6px 10px; }
+.mc-explain__dialog video { display:block; width:auto; max-width:100%; max-height:74dvh; height:auto; margin:auto; border-radius:12px; background:#141414; }
+@media (max-width: 960px) {
+  .mc-explain__container { grid-template-columns: minmax(0,1fr) minmax(280px,.86fr); gap:32px; }
+  .mc-explain__copy h2 { font-size:clamp(46px,5.7vw,66px); }
+}
+@media (max-width: 740px) {
+  .mc-explain { padding: 66px 0; }
+  .mc-explain__container { width: calc(100% - 36px); grid-template-columns: 1fr; gap: 30px; }
+  .mc-explain__copy h2 { font-size: clamp(44px,10.5vw,66px); }
+  .mc-explain__eyebrow { margin-bottom:18px; font-size:10px; }
+  .mc-explain__lead { margin-top:20px; font-size:14px; line-height:1.75; }
+  .mc-explain__note { margin-top:19px; }
+  .mc-explain__note p { font-size:13px; }
+  .mc-explain__learn { margin-top:20px; }
+  .mc-explain__video-col { max-width:390px; }
+  .mc-explain__video-cover { aspect-ratio: 4 / 4.2; border-radius:20px; }
+  .mc-explain__video-caption { font-size:clamp(25px,7vw,33px); }
+  .mc-explain__glass-play { width:68px; height:68px; }
+}
+@media (max-width: 370px) {
+  .mc-explain__video-caption { left:18px; right:18px; bottom:18px; font-size:25px; }
+  .mc-explain__video-top { left:18px; top:18px; font-size:9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-explain__video-cover img, .mc-explain__glass-play, .mc-explain__learn { transition:none; }
+}

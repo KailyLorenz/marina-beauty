@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1120" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <linearGradient id="wall" x1="0" x2="1" y1=".15" y2=".80"><stop stop-color="#625047"/><stop offset=".35" stop-color="#92776a"/><stop offset=".70" stop-color="#bea394"/><stop offset="1" stop-color="#bba092"/></linearGradient>
+  <linearGradient id="light" x1="0" x2=".90" y1=".1" y2=".85"><stop stop-color="#fff2da" stop-opacity=".46"/><stop offset=".55" stop-color="#fff2df" stop-opacity=".18"/><stop offset="1" stop-color="#fff8ee" stop-opacity="0"/></linearGradient>
+  <linearGradient id="shaft" x1="0" x2="1"><stop stop-color="#ffeed5" stop-opacity="0"/><stop offset=".52" stop-color="#ffe6ce" stop-opacity=".24"/><stop offset=".9" stop-color="#fff2e1" stop-opacity=".14"/></linearGradient>
+  <linearGradient id="side" x1="0" x2="1"><stop stop-color="#4b392f" stop-opacity="0"/><stop offset=".62" stop-color="#fff2df" stop-opacity=".13"/><stop offset="1" stop-color="#fdf0e4" stop-opacity=".40"/></linearGradient>
+  <radialGradient id="sun"><stop stop-color="#fff4e5" stop-opacity=".36"/><stop offset="1" stop-color="#fff4e5" stop-opacity="0"/></radialGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="24"/></filter>
+  <filter id="shadow"><feGaussianBlur stdDeviation="37"/></filter>
+  <filter id="texture" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".34" numOctaves="2" seed="10" stitchTiles="stitch"/></filter>
+</defs>
+<rect width="1920" height="1120" fill="url(#wall)"/>
+<rect width="1920" height="1120" fill="url(#light)"/>
+<!-- architectural light without a visible outline, frame or waist-height divider -->
+<path d="M1060,-170 L1550,-170 Q1280,180 1200,480 L850,1120 L640,1120 Z" fill="url(#shaft)" filter="url(#shadow)"/>
+<path d="M1450,-100 H2000 V1230 H1460 Q1620,630 1450,-100" fill="url(#side)" filter="url(#soft)" opacity=".48"/>
+<ellipse cx="1455" cy="340" rx="580" ry="580" fill="url(#sun)"/>
+<!-- blurred botanical light-shadow gesture -->
+<g fill="#372e2b" opacity=".21" filter="url(#shadow)">
+ <path d="M-100,920 Q130,700 305,550 Q170,740 135,1000 Z"/>
+ <path d="M-20,720 Q180,640 270,590 Q170,800 20,850 Z"/>
+ <path d="M50,1030 Q240,805 390,715 Q285,955 100,1120 Z"/>
+ <path d="M1950,275 Q1760,360 1660,580 Q1830,510 1970,390 Z"/>
+</g>
+<g fill="none" stroke="#53483f" stroke-width="19" stroke-linecap="round" opacity=".14" filter="url(#soft)">
+  <path d="M15 1150 C170 930 275 815 387 702"/>
+  <path d="M80 1080 C92 870 130 680 228 567"/>
+  <path d="M190 1008 C245 810 365 670 468 610"/>
+</g>
+<rect width="1920" height="1120" opacity=".035" filter="url(#texture)"/>
+</svg>

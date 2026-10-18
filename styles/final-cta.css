@@ -1,0 +1,23 @@
+.mk-final { position:relative;overflow:hidden;padding:clamp(70px,9vw,136px) 18px 0;background:var(--paper);color:var(--ink); }
+.mk-final__glow { display:none; }
+.mk-final__inner { width:min(100%,1120px);margin:auto;text-align:center; }
+.mk-final__copy { max-width:800px;margin:auto; }
+.mk-final__eyebrow { margin:0 0 20px;color:var(--secondary);letter-spacing:.17em;font:600 10px/1.5 var(--font-body); }
+.mk-final__copy h2 { margin:0;font:400 clamp(58px,7vw,104px)/.95 var(--font-display);letter-spacing:-.05em; }
+.mk-final__copy h2 em { display:block;color:inherit; }
+.mk-final__lead { max-width:490px;margin:23px auto 0;color:var(--muted);font:400 15px/1.75 var(--font-body); }
+.mk-final__cta { display:inline-flex;gap:33px;align-items:center;justify-content:space-between;margin-top:28px;padding:15px 23px;border-radius:9px;background:linear-gradient(130deg,var(--hero-button-start),var(--hero-button-end));color:var(--hero-button-text);font:600 13px/1.5 var(--font-body);transition:transform .3s,background .3s; }
+.mk-final__cta:hover { transform:translateY(-3px);background:var(--secondary-ink); }
+.mk-final__cta-arrow { font-size:19px; }
+.mk-final__contacts { display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:19px;margin-top:clamp(65px,8vw,120px);padding:22px 0;border-top:1px solid var(--line); }
+.mk-final__contacts p { margin:0;color:var(--muted);font:400 13px/1.6 var(--font-body); }
+.mk-final__channels { display:flex;align-items:center;flex-wrap:wrap;gap:10px; }
+.mk-final__channels button { display:flex;align-items:center;gap:12px;min-height:40px;padding:9px 15px;border:1px solid var(--line);background:transparent;border-radius:8px;color:var(--ink);font:500 12px/1.4 var(--font-body);transition:background .2s; }
+.mk-final__channels button:hover { background:var(--warm); }
+@media(max-width:580px){.mk-final{padding-top:78px}.mk-final__copy h2{font-size:clamp(59px,14vw,82px)}.mk-final__lead{font-size:13px}.mk-final__contacts{justify-content:center;text-align:center;margin-top:70px}.mk-final__channels{justify-content:center;gap:7px}.mk-final__channels button{padding:8px 11px;font-size:11px}}
+@media(max-width:620px) {
+  .mk-final__copy h2 { font-size:clamp(52px,13vw,75px); }
+  .mk-final__lead { font-size:14px; }
+  .mk-final__cta { min-height:52px; }
+  .mk-final__contacts { margin-top:59px; }
+}

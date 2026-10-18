@@ -1,0 +1,28 @@
+.ed-faq { padding:clamp(77px,9vw,130px) 0;background:var(--paper);color:var(--ink);scroll-margin-top:70px; }
+.ed-faq__wrap { width:min(calc(100% - 36px),780px);margin:auto; }
+.ed-faq__head { text-align:center;margin:0 auto 39px;max-width:600px; }
+.ed-faq__head h2 { margin:0;font:400 clamp(51px,5.4vw,77px)/1 var(--font-display);letter-spacing:-.045em; }
+.ed-faq__head h2 em { color:inherit; }
+.ed-faq__head>p:last-child { font:400 15px/1.7 var(--font-body);color:var(--muted);margin:16px auto 0; }
+.ed-faq__list { display:grid;gap:12px; }
+.ed-faq__item { min-width:0;overflow:hidden;border-radius:15px;background:var(--warm);border:1px solid transparent;transition:border-color .25s,background .25s; }
+.ed-faq__item:hover,.ed-faq__item.is-open { border-color:var(--line);background:var(--card-selected); }
+.ed-faq__item h3 { margin:0; }
+.ed-faq__trigger { display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;min-height:74px;padding:20px 25px;border:0;background:transparent;text-align:left;color:var(--ink);font:600 15px/1.55 var(--font-body); }
+.ed-faq__trigger svg { flex:none;transition:transform .25s; }
+.ed-faq__answer { padding:0 25px 21px; }
+.ed-faq__answer[hidden] { display:none; }
+.ed-faq__answer>div { max-width:660px;color:var(--muted);font:400 13px/1.8 var(--font-body); }
+.ed-faq__answer p { margin:0 0 12px; }
+.ed-faq__answer p:last-child { margin-bottom:0; }
+.ed-faq__answer strong { font-weight:600;color:var(--ink); }
+.ed-faq__answer .text-button { margin-top:11px; border:0;background:transparent;color:var(--secondary-ink);padding:0;text-decoration:underline;text-underline-offset:4px; }
+.ed-faq__bottom { margin:23px 0 0;text-align:center;font:400 13px/1.7 var(--font-body);color:var(--muted); }
+.ed-faq__bottom a { color:var(--secondary-ink);border-bottom:1px solid currentColor;margin-left:5px; }
+@media(max-width:580px){ .ed-faq{padding:74px 0}.ed-faq__head h2{font-size:54px}.ed-faq__head>p:last-child{font-size:13px}.ed-faq__trigger{min-height:65px;padding:17px 18px;font-size:14px}.ed-faq__answer{padding:0 18px 19px}.ed-faq__list{gap:10px} }
+@media(max-width:620px) {
+  .ed-faq__head h2 { font-size:clamp(48px,12vw,63px); }
+  .ed-faq__trigger { min-height:68px; }
+  .ed-faq__item { border-radius:16px; }
+  .ed-faq__answer>div { font-size:14px; }
+}
