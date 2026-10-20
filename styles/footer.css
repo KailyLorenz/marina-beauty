@@ -12,3 +12,44 @@
 .ed-footer__bottom { display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font:400 11px/1.6 var(--font-body); }
 @media(max-width:850px){.ed-footer__grid{grid-template-columns:1.5fr 1fr 1fr;gap:30px}.ed-footer__identity{grid-column:1/-1}.ed-footer__grid{padding-bottom:45px}}
 @media(max-width:580px){.ed-footer{padding:54px 0 26px}.ed-footer__wrap{width:calc(100% - 36px)}.ed-footer__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:33px 19px;padding-bottom:43px}.ed-footer__identity{grid-column:1/-1}.ed-footer__brand{font-size:45px}.ed-footer__bottom{font-size:10px}}
+
+/* New visual signature — the original wordmark stays in the header. */
+.ed-footer__brand--symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 188px;
+  max-width: 100%;
+  min-height: 172px;
+  transform: none;
+  line-height: 1;
+  border-radius: 50%;
+  outline-offset: 6px;
+}
+.ed-footer__brand-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px var(--shadow-color));
+  transition: transform 450ms ease;
+}
+.ed-footer__brand--symbol:hover .ed-footer__brand-image,
+.ed-footer__brand--symbol:focus-visible .ed-footer__brand-image {
+  transform: translateY(-3px);
+}
+.ed-footer__identity--symbol p {
+  margin: 2px 0 0;
+  max-width: 265px;
+  color: var(--muted);
+}
+@media (max-width: 850px) {
+  .ed-footer__identity--symbol { text-align: center; }
+  .ed-footer__identity--symbol p { margin-inline: auto; }
+}
+@media (max-width: 580px) {
+  .ed-footer__brand--symbol { width: 164px; min-height: 148px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed-footer__brand-image { transition: none; }
+}
