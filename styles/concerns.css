@@ -194,3 +194,54 @@
 @media (prefers-reduced-motion: reduce) {
   .mc-explain__video-cover img, .mc-explain__glass-play, .mc-explain__learn { transition:none; }
 }
+
+
+/* Balanced editorial layout: heading is OUTSIDE the two-column grid.
+   This prevents the heading, copy and video becoming three grid items. */
+.mc-explain__heading {
+  width: min(88%, 1250px);
+  margin: 0 auto clamp(38px, 4.2vw, 68px);
+  text-align: center;
+}
+.mc-explain__heading h2 {
+  width: min(100%, 910px);
+  margin: 0 auto;
+  font: 400 clamp(53px, 5.7vw, 86px)/1.02 var(--font-display);
+  letter-spacing: -.046em;
+  text-wrap: balance;
+  color: var(--ink);
+}
+.mc-explain__heading h2 em {
+  color: var(--secondary-ink);
+  font-weight: 400;
+}
+.mc-explain__container {
+  display: grid;
+  width: min(88%, 1250px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.83fr);
+  column-gap: clamp(42px, 6vw, 95px);
+  row-gap: 0;
+  align-items: center;
+}
+.mc-explain__copy { grid-column: 1; min-width: 0; align-self: center; }
+.mc-explain__video-col { grid-column: 2; min-width: 0; width: 100%; max-width: 425px; margin-inline: auto; }
+.mc-explain__lead { margin-top: 0; }
+@media (max-width: 960px) {
+  .mc-explain__container {
+    grid-template-columns: minmax(0, 1fr) minmax(275px, .9fr);
+    column-gap: 32px;
+  }
+  .mc-explain__heading h2 { font-size: clamp(48px, 6.2vw, 68px); }
+}
+@media (max-width: 740px) {
+  .mc-explain__heading { width: calc(100% - 36px); margin-bottom: 28px; }
+  .mc-explain__heading h2 { font-size: clamp(44px, 11.5vw, 66px); }
+  .mc-explain__container {
+    width: calc(100% - 36px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 27px;
+  }
+  .mc-explain__copy, .mc-explain__video-col { grid-column: 1; }
+  .mc-explain__video-col { max-width: 410px; }
+  .mc-explain__lead { margin-top: 0; }
+}

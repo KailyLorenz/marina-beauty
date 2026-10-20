@@ -24,10 +24,10 @@ export default function MarinaTransformation() {
   const visibleRef = useRef(false);
   const pausedRef = useRef(false);
   const hoverRef = useRef(false);
+  const manualRevealRef = useRef(false);
   const reducedRef = useRef(false);
   const [phase, setPhase] = useState('before');
   const [paused, setPaused] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
 
   const particlesRef = useRef([]);
   if (!particlesRef.current.length) {
@@ -93,6 +93,7 @@ export default function MarinaTransformation() {
   const finish = useCallback(() => {
     const clock = clockRef.current;
     clock.phase = 'after';
+    manualRevealRef.current = false;
     clock.revealing = REVEAL_MS;
     const picture = pictureRef.current;
     if (picture) {
@@ -108,8 +109,9 @@ export default function MarinaTransformation() {
     if (progressRef.current) progressRef.current.style.width = '100%';
   }, [clearDust]);
 
-  const reveal = useCallback(() => {
+  const reveal = useCallback((manual = false) => {
     if (clockRef.current.phase !== 'before') return;
+    manualRevealRef.current = manual;
     if (reducedRef.current) { finish(); return; }
     clockRef.current.phase = 'revealing';
     clockRef.current.revealing = 0;
@@ -121,6 +123,7 @@ export default function MarinaTransformation() {
   }, [finish]);
 
   const reset = useCallback(() => {
+    manualRevealRef.current = false;
     clockRef.current = { phase: 'before', waiting: 0, revealing: 0, last: 0 };
     pausedRef.current = false;
     setPaused(false);
@@ -138,6 +141,19 @@ export default function MarinaTransformation() {
     clearDust();
   }, [clearDust]);
 
+  const showBefore = useCallback(() => {
+    reset();
+    pausedRef.current = true;
+    setPaused(true);
+    if (statusRef.current) statusRef.current.textContent = 'Фото «Тогда» выбрано вручную';
+  }, [reset]);
+
+  const showAfter = useCallback(() => reveal(true), [reveal]);
+  const replay = useCallback(() => {
+    reset();
+    reveal(true);
+  }, [reset, reveal]);
+
   const togglePause = useCallback(() => {
     if (clockRef.current.phase === 'after') return;
     pausedRef.current = !pausedRef.current;
@@ -151,7 +167,7 @@ export default function MarinaTransformation() {
     const canvas = canvasRef.current;
     if (!element || !picture || !canvas) return undefined;
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const changeMotion = () => { reducedRef.current = media.matches; setReducedMotion(media.matches); };
+    const changeMotion = () => { reducedRef.current = media.matches; };
     changeMotion();
     media.addEventListener?.('change', changeMotion);
 
@@ -179,7 +195,9 @@ export default function MarinaTransformation() {
       const clock = clockRef.current;
       const elapsed = clock.last ? Math.min(now - clock.last, 65) : 0;
       clock.last = now;
-      if (!visibleRef.current || document.hidden || pausedRef.current || hoverRef.current) return;
+      // A direct click on «Сейчас» must work even while the pointer is over the photo.
+      const hoverPauses = hoverRef.current && !(clock.phase === 'revealing' && manualRevealRef.current);
+      if (!visibleRef.current || document.hidden || pausedRef.current || hoverPauses) return;
       if (clock.phase === 'before') {
         clock.waiting += elapsed;
         if (progressRef.current) progressRef.current.style.width = `${Math.round(clamp(clock.waiting / WAIT_MS) * 100)}%`;
@@ -200,25 +218,16 @@ export default function MarinaTransformation() {
   }, [finish, reveal, renderTransition]);
 
   const current = phase === 'after';
+  const afterSelected = phase !== 'before';
   return (
     <section className="mk-story" id="my-story" aria-labelledby="mk-story-title" ref={rootRef}>
+      <div className="mk-story__heading">
+        <h2 id="mk-story-title">Однажды я увидела <em>другое отражение.</em></h2>
+      </div>
       <div className="mk-story__inner">
         <div className="mk-story__copy">
-          <h2 id="mk-story-title">Однажды я увидела <em>другое отражение.</em></h2>
           <p className="mk-story__lead">Я заметила, как меняется моё лицо. И вместо того, чтобы просто смириться с этим, мне захотелось разобраться — что происходит и как я могу себе помочь.</p>
           <p className="mk-story__body">Так начался мой путь к бережной работе с лицом, шеей и осанкой. Сегодня я делюсь тем, что узнала и продолжаю практиковать сама.</p>
-          {/* <p className="mk-story__signature">Marina Karper</p> */}
-          <div className="mk-story__actions" aria-label="Управление фотографиями Марины">
-            <button type="button" className="mk-story__primary" onClick={current ? reset : reveal}>
-              {current ? 'Посмотреть «Тогда»' : 'Увидеть «Сейчас»'} <span aria-hidden="true">↗</span>
-            </button>
-            {!current && (
-              <button type="button" className="mk-story__ghost" onClick={togglePause} aria-pressed={paused}>
-                {paused ? '▶ Продолжить' : 'Ⅱ Пауза'}
-              </button>
-            )}
-          </div>
-          <p className="mk-story__helper">{current ? 'Нажмите «Посмотреть Тогда», чтобы повторить переход.' : 'Свет откроет вторую фотографию через пять секунд после появления этой истории на экране. Можно остановить или переключить вручную.'}</p>
         </div>
 
         <figure className="mk-story__visual">
@@ -227,10 +236,10 @@ export default function MarinaTransformation() {
               type="button"
               ref={pictureRef}
               className={`mk-story__picture mk-story__picture--${phase}`}
-              onClick={current ? reset : reveal}
+              onClick={current ? showBefore : showAfter}
               onPointerEnter={(event) => { if (event.pointerType === 'mouse') hoverRef.current = true; }}
               onPointerLeave={(event) => { if (event.pointerType === 'mouse') { hoverRef.current = false; clockRef.current.last = 0; } }}
-              aria-label={current ? 'Сейчас: Марина у зеркала. Нажмите, чтобы снова увидеть фотографию Тогда.' : 'Тогда: портрет Марины. Нажмите, чтобы увидеть фотографию Сейчас.'}
+              aria-label={current ? 'Сейчас: Марина у зеркала. Нажмите, чтобы вернуться к фотографии Тогда.' : 'Тогда: портрет Марины. Нажмите, чтобы открыть фото Сейчас.'}
             >
               <img className="mk-story__photo mk-story__photo--after" src="/images/marina-mirror-scene.jpg" width="853" height="1280" alt="" loading="lazy" />
               <img className="mk-story__photo mk-story__photo--before" src="/images/marina-face-before.jpg" width="481" height="869" alt="" loading="lazy" />
@@ -241,10 +250,39 @@ export default function MarinaTransformation() {
               <span className="mk-story__photo-label">{current ? 'Сейчас' : 'Тогда'}</span>
               <span className="mk-story__photo-caption"><small>МОЁ ОТРАЖЕНИЕ</small><span>{current ? 'И я увидела себя иначе.' : 'У каждой истории есть продолжение.'}</span><i className="mk-story__progress" aria-hidden="true"><i ref={progressRef} /></i></span>
             </button>
+            <div className="mk-story__controls" role="group" aria-label="Выбрать фотографию">
+              <div className="mk-story__switch" role="group" aria-label="Тогда или сейчас">
+                <button
+                  type="button"
+                  className={afterSelected ? '' : 'is-active'}
+                  onClick={showBefore}
+                  aria-pressed={!afterSelected}
+                >
+                  Тогда
+                </button>
+                <button
+                  type="button"
+                  className={afterSelected ? 'is-active' : ''}
+                  onClick={showAfter}
+                  aria-pressed={afterSelected}
+                  disabled={afterSelected}
+                >
+                  Сейчас
+                </button>
+              </div>
+              <button
+                type="button"
+                className="mk-story__control-action"
+                onClick={current ? replay : togglePause}
+                aria-label={current ? 'Повторить световой переход' : paused ? 'Продолжить автоматический показ' : 'Остановить автоматический показ'}
+              >
+                <span aria-hidden="true">{current ? '↻' : paused ? '▶' : 'Ⅱ'}</span>
+                {current ? 'Повторить' : paused ? 'Продолжить' : 'Пауза'}
+              </button>
+            </div>
           </div>
           <figcaption className="mk-story__meta">
             <span ref={statusRef} role="status" aria-live="polite">Моё фото тогда · переход через 5 секунд</span>
-            <span>{reducedMotion ? 'Управление вручную' : 'Наведите курсор, чтобы остановить'}</span>
           </figcaption>
         </figure>
       </div>

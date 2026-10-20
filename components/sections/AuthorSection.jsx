@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import SectionChip from '../ui/SectionChip';
 import { animate, motion, useInView, useReducedMotion } from 'motion/react';
 import '../../styles/author.css';
 
@@ -33,8 +32,10 @@ function AnimatedNumber({ value, started, reducedMotion, duration = 1.7 }) {
 }
 
 export default function AuthorSection() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.22 });
+  const statsRef = useRef(null);
+  // Observe the counters themselves: the full author section can be taller
+  // than the viewport, in which case section-based thresholds never fire.
+  const statsInView = useInView(statsRef, { once: true, amount: 0.15 });
   const reducedMotion = useReducedMotion();
   const noMotion = Boolean(reducedMotion);
   const appear = (delay = 0) => ({
@@ -45,10 +46,9 @@ export default function AuthorSection() {
   });
 
   return (
-    <section ref={sectionRef} className="mk-author" id="author" aria-labelledby="mk-author-title">
+    <section className="mk-author" id="author" aria-labelledby="mk-author-title">
       <div className="mk-author__heading">
-        <motion.div {...appear(0.02)}><SectionChip>Обо мне</SectionChip></motion.div>
-        <motion.h2 id="mk-author-title" {...appear(0.10)}>Давайте <em>знакомиться.</em></motion.h2>
+        <motion.h2 id="mk-author-title" {...appear(0.10)}>Обо <em>мне.</em></motion.h2>
       </div>
       <div className="mk-author__layout">
         <motion.figure className="mk-author__visual" {...appear(0)}>
@@ -76,17 +76,17 @@ export default function AuthorSection() {
             ))}
           </ul>
 
-          <div className="mk-author__statistics" aria-label="Опыт и результаты Марины">
+          <div ref={statsRef} className="mk-author__statistics" aria-label="Опыт и результаты Марины">
             <motion.div className="mk-author__stat" {...appear(0.36)}>
               <strong aria-label="Более семи лет">
-                <AnimatedNumber value={7} started={isInView} reducedMotion={noMotion} />
+                <AnimatedNumber value={7} started={statsInView || noMotion} reducedMotion={noMotion} />
                 <span>+</span>
               </strong>
               <p>лет практики<br />в работе с лицом и осанкой</p>
             </motion.div>
             <motion.div className="mk-author__stat" {...appear(0.44)}>
               <strong aria-label="Более двух тысяч женщин">
-                <AnimatedNumber value={2000} started={isInView} reducedMotion={noMotion} duration={2} />
+                <AnimatedNumber value={2000} started={statsInView || noMotion} reducedMotion={noMotion} duration={2} />
                 <span>+</span>
               </strong>
               <p>женщин прошли программы<br />и получили результаты</p>

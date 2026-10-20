@@ -32,7 +32,7 @@
 @media(max-width:900px){.mk-price__shell{grid-template-columns:1fr;max-width:700px;gap:38px}.mk-price__intro h2 em{display:inline}.mk-price__rule,.mk-price__aside,.mk-price__signature{display:none}.mk-price__intro h2{font-size:clamp(60px,9vw,84px)}.mk-price__lead{margin-top:18px}}
 @media(max-width:580px){.mk-price{padding:69px 0}.mk-price__shell{width:calc(100% - 36px)}.mk-price__intro h2{font-size:clamp(54px,12vw,71px)}.mk-price__card{padding:25px 21px}.mk-price__amount{font-size:clamp(61px,15vw,88px)}.mk-price__card h3{font-size:39px}.mk-price__lead{font-size:14px}}
 
-/* Price is the strongest purchase block, without artificial urgency. */
+/* The offer/countdown is displayed only if the approved deadline is active. */
 .mk-price { background:var(--price-bg); }
 .mk-price__card { background:var(--price-card); box-shadow:0 22px 68px var(--shadow-color); border-radius:24px; }
 .mk-price__cta { box-shadow:var(--hero-button-shadow); }
@@ -49,4 +49,166 @@
   .mk-price__benefits { gap:10px; margin-bottom:23px; }
   .mk-price__benefits li { font-size:13px; }
   .mk-price__cta { min-height:59px; }
+}
+
+
+/* SPECIAL OFFER — shared across all four themes. */
+.mk-price__offer-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 10px;
+  font: 700 10px/1.35 var(--font-body);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--secondary-ink);
+}
+.mk-price__offer-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 0 5px var(--secondary-soft);
+}
+.mk-price__old-price-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin: 3px 0 2px;
+}
+.mk-price__old-caption {
+  color: var(--muted);
+  font: 400 12px/1.5 var(--font-body);
+}
+.mk-price__old-price-row .mk-price__old-price {
+  color: var(--muted);
+  font: 500 16px/1.5 var(--font-body);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.mk-price__price-block { margin-bottom: 18px; }
+.mk-price__amount { color: var(--ink); }
+.mk-price__savings {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  font: 600 12px/1.5 var(--font-body);
+  color: var(--secondary-ink);
+}
+.mk-price__savings span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--secondary-soft);
+}
+.mk-price__offer-ended { margin: 8px 0 0; color: var(--muted); font: 400 12px/1.5 var(--font-body); }
+.mk-price__countdown {
+  margin: -1px 0 25px;
+  padding: clamp(15px, 2vw, 21px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--secondary-soft);
+}
+.countdown-top {
+  display: flex;
+  align-items: center;
+  font: 600 11px/1.6 var(--font-body);
+  color: var(--secondary-ink);
+}
+.countdown-pulse {
+  flex: 0 0 7px;
+  height: 7px;
+  background: var(--secondary);
+}
+.countdown-units {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 15px;
+}
+.countdown-unit {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 4px 10px;
+  border-radius: 11px;
+  background: var(--price-card);
+  border: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+.countdown-unit strong {
+  font: 400 clamp(26px, 3.1vw, 39px)/1 var(--font-display);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.countdown-unit span {
+  color: var(--muted);
+  font: 500 10px/1.3 var(--font-body);
+}
+@media (max-width: 580px) {
+  .mk-price__amount { font-size: clamp(61px, 14vw, 86px); }
+  .mk-price__countdown { padding: 13px; border-radius: 13px; }
+  .countdown-top { font-size: 10px; }
+  .countdown-units { gap: 6px; margin-top: 12px; }
+  .countdown-unit { gap: 4px; padding: 10px 2px 9px; border-radius: 8px; }
+  .countdown-unit strong { font-size: clamp(27px, 8vw, 35px); }
+  .countdown-unit span { font-size: 9px; }
+}
+
+/* Editorial v1.5 — centered section introduction, pricing stays legible. */
+.mk-price__intro { text-align:center; }
+.mk-price__intro h2 { text-wrap:balance; }
+.mk-price__lead { margin-inline:auto; }
+.mk-price__rule { margin-inline:auto; }
+.mk-price__aside { margin-inline:auto; }
+@media (max-width:900px) { .mk-price__intro { text-align:center; } }
+
+/* Price: warm editorial portrait fills the previously empty left column. */
+.mk-price__shell {
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1fr);
+  align-items: center;
+}
+.mk-price__portrait {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 410px);
+  aspect-ratio: 4 / 4.5;
+  overflow: hidden;
+  margin: 0 auto 28px;
+  border-radius: clamp(17px, 2.4vw, 28px);
+  background: var(--warm);
+  box-shadow: 0 20px 65px var(--shadow-color);
+}
+.mk-price__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  transition: transform .85s ease;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .mk-price__portrait:hover img { transform: scale(1.025); }
+}
+.mk-price__intro .mk-price__lead {
+  max-width: 420px;
+  margin-top: 0;
+  margin-inline: auto;
+  text-align: center;
+}
+.mk-price__intro .mk-price__rule { margin-top: 23px; }
+.mk-price__intro .mk-price__aside { text-align: center; }
+@media (max-width: 900px) {
+  .mk-price__shell { grid-template-columns: minmax(0, 1fr); }
+  .mk-price__portrait { width: min(100%, 420px); aspect-ratio: 5 / 4; }
+}
+@media (max-width: 580px) {
+  .mk-price__portrait { width: 100%; max-width: 390px; aspect-ratio: 6 / 4; margin-bottom: 21px; }
+  .mk-price__intro .mk-price__lead { max-width: 390px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mk-price__portrait img { transition: none; }
 }

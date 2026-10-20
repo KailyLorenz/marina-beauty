@@ -41,6 +41,16 @@ export default function PriceSection({ openDialog }) {
       </div>
       <div className="mk-price__shell">
         <div className="mk-price__intro">
+          <figure className="mk-price__portrait">
+            <img
+              src="/images/marina-author-natural.png"
+              width="1365"
+              height="2048"
+              loading="lazy"
+              decoding="async"
+              alt="Марина в светлой студии"
+            />
+          </figure>
           <p className="mk-price__lead">
             Пять недель практики для лица, шеи и осанки — в удобном для вас ритме.
           </p>

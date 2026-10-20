@@ -203,3 +203,54 @@
   .mk-author__content h2 { font-size:clamp(60px,13vw,84px); }
   .mk-author__credentials li { font-size:14px; }
 }
+
+/* Editorial v1.5 — one calm heading above the portrait and credentials. */
+.mk-author__heading {
+  max-width: 900px;
+  width: min(calc(100% - 36px), 900px);
+  text-align: center;
+  margin: 0 auto clamp(36px, 4vw, 60px);
+}
+.mk-author__heading h2 {
+  margin: 0;
+  font: 400 clamp(58px, 6.2vw, 96px)/.96 var(--font-display);
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+.mk-author__heading h2 em { font-weight: 400; color:var(--secondary-ink); }
+.mk-author__lead {
+  margin:0;
+  max-width: 520px;
+  font: 400 clamp(19px, 1.8vw, 25px)/1.65 var(--font-body);
+  color:var(--ink);
+  text-wrap:pretty;
+}
+.mk-author__layout { align-items:center; }
+.mk-author__credentials { margin-top:32px; }
+@media(max-width:740px) {
+  .mk-author__heading { margin-bottom:28px; }
+  .mk-author__heading h2 { font-size:clamp(49px, 12.5vw, 78px); }
+  .mk-author__lead { font-size:18px; text-align:center; margin-inline:auto; }
+  .mk-author__layout { gap:28px; }
+  .mk-author__credentials { margin-top:26px; }
+}
+
+/* Author title is as large and centered as the other section titles. */
+.mk-author__heading {
+  width: min(calc(100% - 36px), 1050px);
+  margin: 0 auto clamp(40px, 5vw, 75px);
+  text-align: center;
+}
+.mk-author__heading h2 {
+  margin: 0 auto;
+  font: 400 clamp(64px, 7.2vw, 110px)/.96 var(--font-display);
+  letter-spacing: -.05em;
+  text-wrap: balance;
+  color: var(--ink);
+}
+.mk-author__heading h2 em { color: var(--secondary-ink); font-weight: 400; }
+.mk-author__statistics { position: relative; }
+@media (max-width: 740px) {
+  .mk-author__heading { margin-bottom: 30px; }
+  .mk-author__heading h2 { font-size: clamp(54px, 13vw, 79px); }
+}
