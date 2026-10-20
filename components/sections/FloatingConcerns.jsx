@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import SectionChip from '../ui/SectionChip';
 import { motion, useInView, useReducedMotion } from "motion/react";
 import "../../styles/floating-concerns.css";
 
@@ -65,14 +66,14 @@ export default function FloatingConcerns() {
   return (
     <section className="mc-float" aria-labelledby="mc-float-title">
       <div className="mc-float__intro">
-        <motion.p
-          className="mc-float__eyebrow"
+        <motion.div
+          className="mc-float__chip"
           initial={reduceMotion ? false : { opacity: 0, y: 14 }}
           animate={visible || reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
           transition={{ duration: 0.65, ease: easeOut }}
         >
-          ЗНАКОМОЕ ОЩУЩЕНИЕ?
-        </motion.p>
+          <SectionChip>Знакомо?</SectionChip>
+        </motion.div>
         <motion.h3
           id="mc-float-title"
           className="mc-float__heading"

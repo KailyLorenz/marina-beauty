@@ -49,3 +49,7 @@ main section[id] { scroll-margin-top: 76px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
 }
+
+
+
+

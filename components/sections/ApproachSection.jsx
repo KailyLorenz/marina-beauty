@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import SectionChip from '../ui/SectionChip';
 import { motion, useReducedMotion } from "motion/react";
 import { methods } from "../../data/content";
 import { num } from "../../data/media";
@@ -66,13 +67,13 @@ export default function ApproachSection() {
       <div className="mk-approach__container">
         <div className="mk-approach__heading">
           <div>
-            <p className="mk-approach__eyebrow">03 / КОМПЛЕКСНЫЙ ПОДХОД</p>
+            <SectionChip>Методика</SectionChip>
             <h2 id="mk-approach-heading">
               Как будем <em>работать с лицом</em>
             </h2>
           </div>
           <p className="mk-approach__intro">
-            Четыре направления практики с короткими видеофрагментами. Живой разбор на модели можно посмотреть в разделе выше.
+            Четыре направления практики с короткими видеофрагментами. Мой разбор на модели можно посмотреть выше.
           </p>
         </div>
 

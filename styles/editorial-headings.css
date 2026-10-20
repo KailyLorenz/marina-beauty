@@ -1,0 +1,117 @@
+/* CONSISTENT EDITORIAL SECTION HEADINGS — all eight LIGHT palettes. */
+/* Keep card titles, video captions, FAQs, and ordinary paragraphs in their own layouts. */
+main :is(
+  .mc-explain__heading,
+  .mk-story__heading,
+  .mc-float__intro,
+  .ed-reasons__head,
+  .mk-approach__heading,
+  .ed-results__heading,
+  .ed-program__heading,
+  .mk-author__heading,
+  .ed-format__head,
+  .mk-price__heading,
+  .ed-faq__head,
+  .mk-final__copy
+) {
+  text-align: center;
+  margin-inline: auto;
+}
+
+/* Petite capsule stays centered above section heading, without a block label. */
+main :is(
+  .mc-explain__heading,
+  .mk-story__heading,
+  .mc-float__intro,
+  .ed-reasons__head,
+  .mk-approach__heading,
+  .ed-results__heading,
+  .ed-program__heading,
+  .mk-author__heading,
+  .ed-format__head,
+  .mk-price__heading,
+  .ed-faq__head
+) > .mk-section-chip {
+  margin-inline: auto;
+}
+
+main :is(
+  .mc-explain__heading,
+  .mk-story__heading,
+  .mc-float__intro,
+  .ed-reasons__head,
+  .mk-approach__heading,
+  .ed-results__heading,
+  .ed-program__heading,
+  .mk-author__heading,
+  .ed-format__head,
+  .mk-price__heading,
+  .ed-faq__head,
+  .mk-final__copy
+) > h2 {
+  text-align: center;
+  text-wrap: balance;
+  margin-inline: auto;
+}
+
+/* The personal story is emotional: no chip, only one centered heading. */
+main .mk-story__heading {
+  width: min(calc(100% - 8px), 960px);
+  margin-bottom: clamp(32px, 4vw, 62px);
+}
+main .mk-story__heading h2 {
+  margin: 0 auto;
+  color: var(--ink);
+  font: 400 clamp(45px, 5.8vw, 83px)/1.03 var(--font-display);
+  letter-spacing: -.045em;
+}
+main .mk-story__heading h2 em { color: var(--secondary-ink); font-weight: 400; }
+
+/* Price section heading spans the FULL SECTION, not just the left grid column. */
+main .mk-price__heading {
+  width: min(calc(100% - 36px), 940px);
+  margin: 0 auto clamp(35px, 5vw, 66px);
+}
+main .mk-price__heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font: 400 clamp(58px, 7vw, 104px)/.95 var(--font-display);
+  letter-spacing: -.048em;
+}
+main .mk-price__heading h2 em { color: var(--secondary-ink); font-weight: 400; }
+main .mk-price__intro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .mk-price__intro .mk-price__lead { margin-top: 0; max-width: 440px; }
+main .mk-price__intro .mk-price__rule { margin-inline: auto; }
+main .mk-price__intro .mk-price__aside { margin-inline: auto; }
+
+/* About Marina was already a section-wide heading; protect that alignment. */
+main .mk-author__heading {
+  width: min(calc(100% - 36px), 900px);
+  margin-inline: auto;
+}
+main .mk-author__heading h2 { text-align: center; text-wrap: balance; }
+
+/* The footer theme selector is a heading, too — not the individual option labels. */
+.mk-theme-switcher__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 5px;
+}
+.mk-theme-switcher__heading p { text-align: center; }
+
+@media (max-width: 740px) {
+  main .mk-story__heading { margin-bottom: 28px; }
+  main .mk-story__heading h2 { font-size: clamp(43px, 10.5vw, 68px); }
+  main .mk-price__heading { margin-bottom: 25px; }
+  main .mk-price__heading h2 { font-size: clamp(52px, 12vw, 76px); }
+  main .mk-price__intro .mk-price__lead { max-width: 530px; }
+}

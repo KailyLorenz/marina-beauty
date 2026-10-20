@@ -1,8 +1,10 @@
 import '../styles/theme.css';
 import '../styles/globals.css';
+import '../styles/section-chip.css';
 import 'lenis/dist/lenis.css';
 import '../styles/experience.css';
 import '../styles/concerns.css';
+import '../styles/editorial-headings.css';
 import { DEFAULT_THEME, THEMES, THEME_STORAGE_KEY } from '../config/themes';
 // import '../styles/program.css';
 

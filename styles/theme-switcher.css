@@ -14,3 +14,16 @@
 @media(max-width:840px) { .mk-theme-switcher__options { grid-template-columns:1fr; } .mk-theme-switcher__option { min-height:55px; } }
 @media(max-width:520px) { .mk-theme-switcher { padding:22px 0; } .mk-theme-switcher__heading { display:block; } .mk-theme-switcher__heading p { margin-top:4px; } .mk-theme-switcher__name { font-size:12px; } }
 @media(prefers-reduced-motion:reduce) { .mk-theme-switcher__option { transition:none; } }
+
+/* Responsive selector: wide options on desktop and tablet. */
+@media (min-width:841px) and (max-width:1040px) {
+  .mk-theme-switcher__options { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+.mk-theme-switcher__swatches > span { min-width:0; }
+
+
+/* Eight light palettes: two options per row on desktop. */
+@media (min-width:841px) {
+  .mk-theme-switcher__options { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+

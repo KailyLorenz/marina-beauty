@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import SectionChip from '../ui/SectionChip';
 import { animate, motion, useInView, useReducedMotion } from 'motion/react';
 import '../../styles/author.css';
 
 const credentials = [
-  'Дипломированный специалист по коррекции осанки и сколиоза',
-  'Дипломированный специалист по восстановлению женского тела',
-  'Автор программ по омоложению лица и коррекции осанки',
+  'Коррекция осанки и сколиоза — дипломированная подготовка',
+  'Восстановление женского тела — профильное обучение',
+  'Создаю программы для лица, шеи и осанки',
 ];
 
 function AnimatedNumber({ value, started, reducedMotion, duration = 1.7 }) {
@@ -45,6 +46,10 @@ export default function AuthorSection() {
 
   return (
     <section ref={sectionRef} className="mk-author" id="author" aria-labelledby="mk-author-title">
+      <div className="mk-author__heading">
+        <motion.div {...appear(0.02)}><SectionChip>Обо мне</SectionChip></motion.div>
+        <motion.h2 id="mk-author-title" {...appear(0.10)}>Давайте <em>знакомиться.</em></motion.h2>
+      </div>
       <div className="mk-author__layout">
         <motion.figure className="mk-author__visual" {...appear(0)}>
           <img
@@ -55,22 +60,12 @@ export default function AuthorSection() {
             loading="lazy"
             decoding="async"
           />
-          {/*<figcaption>Марина Карпер <span aria-hidden="true">/</span> автор программы</figcaption>*/}
         </motion.figure>
 
         <div className="mk-author__content">
-          <motion.p className="mk-author__eyebrow" {...appear(0.06)}>06 / ЗНАКОМСТВО</motion.p>
-          <motion.p className="mk-author__kicker" {...appear(0.1)}>Автор программы</motion.p>
-          <motion.h2 id="mk-author-title" {...appear(0.14)}>
-            Марина <em>Cарпер</em>
-          </motion.h2>
-          <motion.div className="mk-author__signature" aria-hidden="true" {...appear(0.18)}>
-            <span className="mk-author__signature-rule" />
-            <span className="mk-author__signature-name">Marina Carper</span>
-          </motion.div>
-          <motion.h3 className="mk-author__subtitle" {...appear(0.2)}>
-            Эксперт по естественному омоложению лица, шеи и осанки
-          </motion.h3>
+          <motion.p className="mk-author__lead" {...appear(0.17)}>
+            Я помогаю женщинам бережно работать с лицом, шеей и осанкой — через внимание к телу и регулярную практику.
+          </motion.p>
 
           <ul className="mk-author__credentials">
             {credentials.map((credential, index) => (

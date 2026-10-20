@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'motion/react';
+import SectionChip from '../ui/SectionChip';
 import '../../styles/reasons.css';
 
 /** The three existing educational illustrations from the source project. */
@@ -15,7 +16,7 @@ const reasons = [
     image: '/images/course-03.webp',
     alt: 'Иллюстрация средней и нижней части лица с отмеченными мышечными зонами',
     title: 'Средняя и нижняя части лица',
-    description: 'Мы обращаем внимание на мышцы и привычные паттерны напряжения в области щёк, рта и нижней трети лица.',
+    description: 'Я обращаю внимание на мышцы и привычные паттерны напряжения в области щёк, рта и нижней трети лица.',
   },
   {
     image: '/images/course-04.webp',
@@ -31,7 +32,7 @@ export default function ReasonsSection() {
     <section className="ed-reasons" id="reasons" aria-labelledby="ed-reasons-title">
       <div className="ed-reasons__wrap">
         <div className="ed-reasons__head">
-          <p className="ed-kicker">02 / ПОНИМАЕМ ПРИЧИНЫ</p>
+          <SectionChip>Причины</SectionChip>
           <h2 id="ed-reasons-title">Всё <em>взаимосвязано.</em></h2>
           <p>Не только кожа, но и работа мышц, положение головы и привычки тела могут влиять на внешний вид лица.</p>
         </div>
@@ -57,7 +58,7 @@ export default function ReasonsSection() {
           ))}
         </div>
         <div className="ed-reasons__summary">
-          <div><span className="ed-reasons__summary-label">ПОЭТОМУ МЫ СМОТРИМ ШИРЕ</span><p>Лицо, шея и осанка — <em>одна система практик.</em></p></div>
+          <div><span className="ed-reasons__summary-label">ПОЭТОМУ Я СМОТРЮ ШИРЕ</span><p>Лицо, шея и осанка — <em>одна система практик.</em></p></div>
           <a href="#approach">Посмотреть методику <span aria-hidden="true">↗</span></a>
         </div>
         <p className="ed-reasons__disclaimer">Иллюстрации схематические и не являются медицинской диагностикой. Причины изменений внешности индивидуальны.</p>

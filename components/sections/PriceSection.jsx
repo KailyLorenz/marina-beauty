@@ -1,13 +1,11 @@
 'use client';
 
 import { siteConfig } from '../../config/site';
+import SectionChip from '../ui/SectionChip';
 import { useCountdown } from '../../hooks/useCountdown';
 import { Countdown } from '../ui/Countdown';
 import { rub } from '../../data/media';
 import '../../styles/price.css';
-
-// Agreed selling price. Keep your checkout/payment settings aligned with this value.
-const COURSE_PRICE = Number(siteConfig.promoPrice) || 12700;
 
 const benefits = [
   '5 недель занятий по видеозаписям',
@@ -18,21 +16,36 @@ const benefits = [
 
 export default function PriceSection({ openDialog }) {
   const countdown = useCountdown();
-  const formerPrice = Number(siteConfig?.regularPrice);
-  const hasRealDiscount = countdown.ready && countdown.active && Number.isFinite(formerPrice) && formerPrice > COURSE_PRICE;
-  const savings = hasRealDiscount ? formerPrice - COURSE_PRICE : 0;
-  const discountPercent = hasRealDiscount ? Math.round((savings / formerPrice) * 100) : 0;
+  const regularPrice = Number(siteConfig.regularPrice);
+  const promoPrice = Number(siteConfig.promoPrice);
+  const hasConfiguredOffer = Boolean(
+    siteConfig.promoEndsAt &&
+    Number.isFinite(regularPrice) &&
+    Number.isFinite(promoPrice) &&
+    regularPrice > promoPrice &&
+    promoPrice > 0
+  );
+
+  // Before hydration the offer is rendered using static, deterministic values.
+  // After hydration the clock decides whether the promotion is still valid.
+  const offerActive = hasConfiguredOffer && (!countdown.ready || countdown.active);
+  const actualPrice = offerActive ? promoPrice : regularPrice;
+  const savings = regularPrice - promoPrice;
+  const percent = Math.round((savings / regularPrice) * 100);
 
   return (
     <section className="mk-price" id="price" aria-labelledby="mk-price-heading">
+      <div className="mk-price__heading">
+        <SectionChip>Участие</SectionChip>
+        <h2 id="mk-price-heading">Время <em>для себя.</em></h2>
+      </div>
       <div className="mk-price__shell">
         <div className="mk-price__intro">
-          <p className="mk-price__eyebrow">08 / ВРЕМЯ ДЛЯ СЕБЯ</p>
-          <h2 id="mk-price-heading">Время <em>для себя.</em></h2>
-          <p className="mk-price__lead">Пять недель практики для лица, шеи и осанки — в удобном для вас ритме.</p>
+          <p className="mk-price__lead">
+            Пять недель практики для лица, шеи и осанки — в удобном для вас ритме.
+          </p>
           <div className="mk-price__rule" aria-hidden="true" />
           <p className="mk-price__aside">Начните с малого.<br />Уделите себе 15 минут в день.</p>
-          <span className="mk-price__signature" aria-hidden="true">Marina Carper</span>
         </div>
 
         <div className="mk-price__card">
@@ -40,21 +53,41 @@ export default function PriceSection({ openDialog }) {
             <span>УЧАСТИЕ В ИНТЕНСИВЕ</span>
             <span className="mk-price__edition">5 НЕДЕЛЬ</span>
           </div>
+
           <h3>Лицо. Шея. Осанка.</h3>
           <p className="mk-price__card-subtitle">Полная программа с уроками и поддержкой</p>
 
           <div className="mk-price__price-block">
-            {hasRealDiscount && (
-              <span className="mk-price__old-price">{rub(formerPrice)} ₽</span>
+            {offerActive && (
+              <div className="mk-price__offer-label">
+                <span className="mk-price__offer-dot" aria-hidden="true" />
+                Специальная стоимость участия
+              </div>
             )}
-            <div className="mk-price__amount">{rub(COURSE_PRICE)} <span>₽</span></div>
-            {hasRealDiscount && (
-              <p className="mk-price__savings">Экономия {rub(savings)} ₽ · −{discountPercent}%</p>
+
+            {offerActive && (
+              <div className="mk-price__old-price-row">
+                <span className="mk-price__old-caption">Обычная цена</span>
+                <del className="mk-price__old-price">{rub(regularPrice)} ₽</del>
+              </div>
+            )}
+
+            <div className="mk-price__amount" aria-live="polite" suppressHydrationWarning>
+              {rub(actualPrice)} <span>₽</span>
+            </div>
+
+            {offerActive && (
+              <p className="mk-price__savings">Экономия {rub(savings)} ₽ <span>−{percent}%</span></p>
+            )}
+            {!offerActive && countdown.ready && hasConfiguredOffer && (
+              <p className="mk-price__offer-ended">Срок специального предложения завершился.</p>
             )}
           </div>
 
-          {hasRealDiscount && (
-            <div className="mk-price__countdown"><Countdown countdown={countdown} /></div>
+          {offerActive && (
+            <div className="mk-price__countdown" aria-live="off">
+              <Countdown countdown={countdown} />
+            </div>
           )}
 
           <div className="mk-price__includes-title">В программу входит</div>
@@ -62,11 +95,7 @@ export default function PriceSection({ openDialog }) {
             {benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
           </ul>
 
-          <button
-            className="mk-price__cta"
-            type="button"
-            onClick={() => openDialog?.('payment')}
-          >
+          <button className="mk-price__cta" type="button" onClick={() => openDialog?.('payment')}>
             <span>Принять участие</span><span aria-hidden="true">↗</span>
           </button>
           <p className="mk-price__footer">Онлайн-обучение на платформе GetCourse</p>

@@ -1,10 +1,14 @@
 /*
-  MARINA KARPER — ONE DESIGN SYSTEM, FOUR THEMES
+  MARINA KARPER — ONE DESIGN SYSTEM, EIGHT LIGHT THEMES
   ------------------------------------------------
   DEFAULT:  ice       / Ледяная бирюза
   OPTION 2: graphite  / Жемчужный графит
   OPTION 3: orchid    / Ледяная орхидея
   OPTION 4: taupe     / Cool Taupe Luxury
+  OPTION 5: sea-glass / Sea Glass Atelier
+  OPTION 6: azure     / Azure Pearl
+  OPTION 7: cocoa-silk / Cocoa Silk
+  OPTION 8: rosewood / Rosewood Atelier
 
   Themes are switched by the data-theme attribute on <html>.
   There should be NO theme hex colors in component CSS: use the semantic tokens.
@@ -21,6 +25,10 @@
 
 :root,
 html[data-theme="ice"] {
+  --chip-light: var(--hero-aqua-light);
+  --chip-label: #596d70;
+  --chip-base: var(--secondary-ink);
+
   /* Theme A · Ice Turquoise — default */
   --paper: #f7f8f7;
   --white: #ffffff;
@@ -55,6 +63,10 @@ html[data-theme="ice"] {
 }
 
 html[data-theme="graphite"] {
+  --chip-light: #afbacc;
+  --chip-label: #5f6976;
+  --chip-base: #53647e;
+
   /* Theme B · Pearl Graphite — restrained editorial look */
   --paper: #f8f8f9;
   --white: #ffffff;
@@ -89,6 +101,10 @@ html[data-theme="graphite"] {
 }
 
 html[data-theme="orchid"] {
+  --chip-light: #d3bad9;
+  --chip-label: #6b6174;
+  --chip-base: #806888;
+
   /* Theme C · Frost Orchid — feminine but cool, never sugary */
   --paper: #faf9fb;
   --white: #ffffff;
@@ -129,6 +145,10 @@ html[data-theme="orchid"] {
  * Taupe is used for UI accents; turquoise is reserved for Hero CTA.
  * ------------------------------------------------------------ */
 html[data-theme="taupe"] {
+  --chip-light: #b6a8af;
+  --chip-label: #6a6067;
+  --chip-base: #76616d;
+
   --paper: #f7f5f5;
   --white: #ffffff;
   --surface: #fbfafa;
@@ -162,6 +182,85 @@ html[data-theme="taupe"] {
   --hero-aqua-light: #69c7cd;
   --shadow-color: rgba(57, 50, 57, .10);
 }
+
+
+
+/* 05 — SEA GLASS ATELIER | refined mineral sea-green, bright yet soft */
+html[data-theme="sea-glass"] {
+  --paper: #f2f9f8;
+  --white: #ffffff;
+  --surface: #fbfefd;
+  --ink: #263d3e;
+  --muted: #637f80;
+  --secondary: #2d898d;
+  --secondary-ink: #246c72;
+  --secondary-soft: #e7f4f1;
+  --sage: #eaf4f1;
+  --warm: #e5f1ee;
+  --accent: #cde8e4;
+  --line: #d4e5e2;
+  --card: #ffffff;
+  --card-selected: #ebf7f4;
+  --price-bg: #e2efec;
+  --price-card: #ffffff;
+  --footer-bg: #e6f1ef;
+  --overlay-card: rgba(255, 255, 255, .84);
+  --hero-text: #263d3e;
+  --hero-text-soft: #5e7375;
+  --hero-highlight: #263d3e;
+  --hero-surface: #edf5f2;
+  --hero-wash-rgb: 242, 249, 248;
+  --hero-button-start: #7ed2c9;
+  --hero-button-end: #287e83;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #e7f4f1;
+  --hero-aqua: #27868b;
+  --hero-aqua-light: #95d8d1;
+  --chip-light: #a6dbd4;
+  --chip-label: #4e6d70;
+  --chip-base: #2d898d;
+  --shadow-color: rgba(30, 86, 84, .11);
+}
+
+/* 06 — AZURE PEARL | crisp blue-turquoise pearl / modern resort luxury */
+html[data-theme="azure"] {
+  --paper: #f3f8fc;
+  --white: #ffffff;
+  --surface: #fafdff;
+  --ink: #263b4b;
+  --muted: #6a8191;
+  --secondary: #328eb5;
+  --secondary-ink: #226a8c;
+  --secondary-soft: #e7f4f9;
+  --sage: #eaf3f8;
+  --warm: #e4f1f7;
+  --accent: #d5eaf4;
+  --line: #d8e6ed;
+  --card: #ffffff;
+  --card-selected: #edf7fc;
+  --price-bg: #e6f1f8;
+  --price-card: #ffffff;
+  --footer-bg: #eaf3f9;
+  --overlay-card: rgba(255, 255, 255, .86);
+  --hero-text: #273c4d;
+  --hero-text-soft: #647b8c;
+  --hero-highlight: #273c4d;
+  --hero-surface: #eef5f9;
+  --hero-wash-rgb: 243, 248, 252;
+  --hero-button-start: #8ed5e8;
+  --hero-button-end: #2a83a5;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #e8f4f8;
+  --hero-aqua: #328eb5;
+  --hero-aqua-light: #9bdeea;
+  --chip-light: #a8dbe9;
+  --chip-label: #526d7c;
+  --chip-base: #328eb5;
+  --shadow-color: rgba(30, 78, 103, .11);
+}
+
+/* 07 — MIDNIGHT TIDE | deep maritime ink, sea-glass light */
+
 
 :root {
   /* Shared aliases used by legacy sections: DO NOT hardcode theme colors there. */
@@ -203,3 +302,83 @@ html[data-theme="taupe"] {
   --exp-out: var(--motion-out);
   --exp-ease: var(--motion-in-out);
 }
+
+/* Editorial palette: cocoa-silk */
+html[data-theme="cocoa-silk"] {
+  --paper: #f8f4f0;
+  --white: #ffffff;
+  --surface: #fdfaf7;
+  --ink: #352a28;
+  --muted: #857670;
+  --secondary: #896b5d;
+  --secondary-ink: #6a4a3e;
+  --secondary-soft: #f2ebe5;
+  --sage: #f0eae4;
+  --warm: #eee6de;
+  --accent: #e6d9cb;
+  --line: #e8ded6;
+  --card: #fffdfb;
+  --card-selected: #f5eee8;
+  --price-bg: #ebe1da;
+  --price-card: #fffdfb;
+  --footer-bg: #f0e7e0;
+  --overlay-card: rgba(255,253,251,.86);
+  --hero-text: #3b302b;
+  --hero-text-soft: #857870;
+  --hero-highlight: #3b302b;
+  --hero-surface: #f2ebe6;
+  --hero-wash-rgb: 248, 244, 240;
+  --hero-button-start: #ad9182;
+  --hero-button-end: #755247;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #f1eae4;
+  --hero-aqua: #896b5d;
+  --hero-aqua-light: #d4b4a3;
+  --chip-light: #d1b5a4;
+  --chip-label: #75665f;
+  --chip-base: #8c6a5b;
+  --shadow-color: rgba(61,40,34,.12);
+}
+
+/* Editorial palette: rosewood */
+html[data-theme="rosewood"] {
+  --paper: #f9f4f3;
+  --white: #ffffff;
+  --surface: #fffbfa;
+  --ink: #403039;
+  --muted: #89777c;
+  --secondary: #864d5b;
+  --secondary-ink: #6d3a49;
+  --secondary-soft: #f6ebed;
+  --sage: #f2e7e7;
+  --warm: #eee3e5;
+  --accent: #e5d5d9;
+  --line: #eadde0;
+  --card: #ffffff;
+  --card-selected: #f5e9ec;
+  --price-bg: #efe3e5;
+  --price-card: #fffdfd;
+  --footer-bg: #f2e6e8;
+  --overlay-card: rgba(255,252,252,.85);
+  --hero-text: #403039;
+  --hero-text-soft: #87777b;
+  --hero-highlight: #403039;
+  --hero-surface: #f3ebeb;
+  --hero-wash-rgb: 249, 244, 243;
+  --hero-button-start: #b88491;
+  --hero-button-end: #7b4051;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #f3e8ea;
+  --hero-aqua: #925764;
+  --hero-aqua-light: #d4a3ad;
+  --chip-light: #d8adb6;
+  --chip-label: #786268;
+  --chip-base: #925767;
+  --shadow-color: rgba(85,44,57,.12);
+}
+
+
+
+
+
+

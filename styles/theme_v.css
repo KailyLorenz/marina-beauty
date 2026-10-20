@@ -1,0 +1,454 @@
+/*
+  MARINA KARPER — ONE DESIGN SYSTEM, SEVEN THEMES
+  ------------------------------------------------
+  DEFAULT:  ice       / Ледяная бирюза
+  OPTION 2: graphite  / Жемчужный графит
+  OPTION 3: orchid    / Ледяная орхидея
+  OPTION 4: taupe     / Cool Taupe Luxury
+  OPTION 5: sea-glass / Sea Glass Atelier
+  OPTION 6: azure     / Azure Pearl
+  OPTION 7: midnight-tide / Midnight Tide
+
+  Themes are switched by the data-theme attribute on <html>.
+  There should be NO theme hex colors in component CSS: use the semantic tokens.
+
+  HOW TO ADD ANOTHER THEME:
+  1. Copy one of the html[data-theme="..."] blocks below; choose a new ID.
+  2. Add the new ID/label/swatches in config/themes.js.
+  3. Components, cards, buttons, modal, and footer will inherit the theme.
+
+  HOW TO CHANGE DEFAULT:
+  Edit DEFAULT_THEME in config/themes.js. The selector in the footer lets you
+  preview and save a choice locally without changing code.
+*/
+
+:root,
+html[data-theme="ice"] {
+  --chip-light: var(--hero-aqua-light);
+  --chip-label: #596d70;
+  --chip-base: var(--secondary-ink);
+
+  /* Theme A · Ice Turquoise — default */
+  --paper: #f7f8f7;
+  --white: #ffffff;
+  --surface: #fbfcfb;
+  --ink: #34393c;
+  --muted: #707b81;
+  --secondary: #237985;
+  --secondary-ink: #1d616b;
+  --secondary-soft: #eaf5f5;
+  --sage: #eef3f2;
+  --warm: #f1f3f3;
+  --accent: #dceced;
+  --line: #dfe6e6;
+  --card: #ffffff;
+  --card-selected: #e9f4f4;
+  --price-bg: #e8f1f1;
+  --price-card: #ffffff;
+  --footer-bg: #edf3f3;
+  --overlay-card: rgba(255, 255, 255, .78);
+  --hero-text: #3a3431;
+  --hero-text-soft: #746e69;
+  --hero-highlight: #3a3431;
+  --hero-surface: #efeeee;
+  --hero-wash-rgb: 246, 244, 241;
+  --hero-button-start: #72c9cd;
+  --hero-button-end: #247f8b;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #edf4f4;
+  --hero-aqua: #237985;
+  --hero-aqua-light: #79cbd0;
+  --shadow-color: rgba(33, 72, 78, .10);
+}
+
+html[data-theme="graphite"] {
+  --chip-light: #afbacc;
+  --chip-label: #5f6976;
+  --chip-base: #53647e;
+
+  /* Theme B · Pearl Graphite — restrained editorial look */
+  --paper: #f8f8f9;
+  --white: #ffffff;
+  --surface: #fcfcfd;
+  --ink: #333640;
+  --muted: #737987;
+  --secondary: #525f7b;
+  --secondary-ink: #3c4862;
+  --secondary-soft: #eff1f5;
+  --sage: #e9edf2;
+  --warm: #f1f2f5;
+  --accent: #dce1eb;
+  --line: #dfe3eb;
+  --card: #ffffff;
+  --card-selected: #e9edf3;
+  --price-bg: #e6e9ef;
+  --price-card: #ffffff;
+  --footer-bg: #eceff4;
+  --overlay-card: rgba(255, 255, 255, .82);
+  --hero-text: #30333b;
+  --hero-text-soft: #727482;
+  --hero-highlight: #30333b;
+  --hero-surface: #eff0f3;
+  --hero-wash-rgb: 248, 248, 250;
+  --hero-button-start: #8697ad;
+  --hero-button-end: #455574;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #e9edf3;
+  --hero-aqua: #647691;
+  --hero-aqua-light: #afbdd0;
+  --shadow-color: rgba(39, 48, 71, .10);
+}
+
+html[data-theme="orchid"] {
+  --chip-light: #d3bad9;
+  --chip-label: #6b6174;
+  --chip-base: #806888;
+
+  /* Theme C · Frost Orchid — feminine but cool, never sugary */
+  --paper: #faf9fb;
+  --white: #ffffff;
+  --surface: #fcfafd;
+  --ink: #36323b;
+  --muted: #7d7585;
+  --secondary: #806888;
+  --secondary-ink: #644e6f;
+  --secondary-soft: #f5eff7;
+  --sage: #f1ebf3;
+  --warm: #f5f1f6;
+  --accent: #e9dfea;
+  --line: #e8e1e9;
+  --card: #ffffff;
+  --card-selected: #f2eaf4;
+  --price-bg: #eee7f0;
+  --price-card: #ffffff;
+  --footer-bg: #f2ecf3;
+  --overlay-card: rgba(255, 255, 255, .82);
+  --hero-text: #37313a;
+  --hero-text-soft: #817987;
+  --hero-highlight: #37313a;
+  --hero-surface: #f3f0f3;
+  --hero-wash-rgb: 250, 247, 250;
+  --hero-button-start: #c0a3cd;
+  --hero-button-end: #80678f;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #f0eaf1;
+  --hero-aqua: #957ca3;
+  --hero-aqua-light: #d7c0df;
+  --shadow-color: rgba(69, 45, 79, .10);
+}
+
+
+/* ------------------------------------------------------------
+ * Theme D · Cool Taupe Luxury
+ * Cool pearl/beige undertone, high contrast espresso typography.
+ * Taupe is used for UI accents; turquoise is reserved for Hero CTA.
+ * ------------------------------------------------------------ */
+html[data-theme="taupe"] {
+  --chip-light: #b6a8af;
+  --chip-label: #6a6067;
+  --chip-base: #76616d;
+
+  --paper: #f7f5f5;
+  --white: #ffffff;
+  --surface: #fbfafa;
+  --ink: #393239;
+  --muted: #817780;
+  --secondary: #75676f;
+  --secondary-ink: #594c54;
+  --secondary-soft: #f2eeee;
+  --sage: #eeeaeb;
+  --warm: #eae6e6;
+  --accent: #e5dddf;
+  --line: #e4dcdf;
+  --card: #ffffff;
+  --card-selected: #eee9eb;
+  --price-bg: #eae5e7;
+  --price-card: #ffffff;
+  --footer-bg: #f0eced;
+  --overlay-card: rgba(255, 255, 255, .82);
+
+  /* Keep the light photographic Hero, with dark readable text. */
+  --hero-text: #393239;
+  --hero-text-soft: #7d727a;
+  --hero-highlight: #393239;
+  --hero-surface: #f3f0f1;
+  --hero-wash-rgb: 247, 245, 245;
+  --hero-button-start: #69c7cd;
+  --hero-button-end: #247e87;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #f0eced;
+  --hero-aqua: #247e87;
+  --hero-aqua-light: #69c7cd;
+  --shadow-color: rgba(57, 50, 57, .10);
+}
+
+
+
+/* 05 — SEA GLASS ATELIER | refined mineral sea-green, bright yet soft */
+html[data-theme="sea-glass"] {
+  --paper: #f2f9f8;
+  --white: #ffffff;
+  --surface: #fbfefd;
+  --ink: #263d3e;
+  --muted: #637f80;
+  --secondary: #2d898d;
+  --secondary-ink: #246c72;
+  --secondary-soft: #e7f4f1;
+  --sage: #eaf4f1;
+  --warm: #e5f1ee;
+  --accent: #cde8e4;
+  --line: #d4e5e2;
+  --card: #ffffff;
+  --card-selected: #ebf7f4;
+  --price-bg: #e2efec;
+  --price-card: #ffffff;
+  --footer-bg: #e6f1ef;
+  --overlay-card: rgba(255, 255, 255, .84);
+  --hero-text: #263d3e;
+  --hero-text-soft: #5e7375;
+  --hero-highlight: #263d3e;
+  --hero-surface: #edf5f2;
+  --hero-wash-rgb: 242, 249, 248;
+  --hero-button-start: #7ed2c9;
+  --hero-button-end: #287e83;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #e7f4f1;
+  --hero-aqua: #27868b;
+  --hero-aqua-light: #95d8d1;
+  --chip-light: #a6dbd4;
+  --chip-label: #4e6d70;
+  --chip-base: #2d898d;
+  --shadow-color: rgba(30, 86, 84, .11);
+}
+
+/* 06 — AZURE PEARL | crisp blue-turquoise pearl / modern resort luxury */
+html[data-theme="azure"] {
+  --paper: #f3f8fc;
+  --white: #ffffff;
+  --surface: #fafdff;
+  --ink: #263b4b;
+  --muted: #6a8191;
+  --secondary: #328eb5;
+  --secondary-ink: #226a8c;
+  --secondary-soft: #e7f4f9;
+  --sage: #eaf3f8;
+  --warm: #e4f1f7;
+  --accent: #d5eaf4;
+  --line: #d8e6ed;
+  --card: #ffffff;
+  --card-selected: #edf7fc;
+  --price-bg: #e6f1f8;
+  --price-card: #ffffff;
+  --footer-bg: #eaf3f9;
+  --overlay-card: rgba(255, 255, 255, .86);
+  --hero-text: #273c4d;
+  --hero-text-soft: #647b8c;
+  --hero-highlight: #273c4d;
+  --hero-surface: #eef5f9;
+  --hero-wash-rgb: 243, 248, 252;
+  --hero-button-start: #8ed5e8;
+  --hero-button-end: #2a83a5;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #e8f4f8;
+  --hero-aqua: #328eb5;
+  --hero-aqua-light: #9bdeea;
+  --chip-light: #a8dbe9;
+  --chip-label: #526d7c;
+  --chip-base: #328eb5;
+  --shadow-color: rgba(30, 78, 103, .11);
+}
+
+/* 07 — MIDNIGHT TIDE | deep maritime ink, sea-glass light */
+html[data-theme="midnight-tide"] {
+  color-scheme: dark;
+  --paper: #0f2730;
+  --white: #1b3842;
+  --surface: #152f38;
+  --ink: #edf6f5;
+  --muted: #b6cbd0;
+  --secondary: #69ced0;
+  --secondary-ink: #a0e1dc;
+  --secondary-soft: #1a4048;
+  --sage: #15363e;
+  --warm: #1e3f48;
+  --accent: #2b5862;
+  --line: #345861;
+  --card: #1b3b44;
+  --card-selected: #254a53;
+  --price-bg: #102e36;
+  --price-card: #20434c;
+  --footer-bg: #0b242b;
+  --overlay-card: rgba(20, 50, 56, .88);
+  --hero-text: #f1f7f4;
+  --hero-text-soft: #d1e3e0;
+  --hero-highlight: #f1f7f4;
+  --hero-surface: #19333c;
+  --hero-wash-rgb: 15, 39, 48;
+  --hero-button-start: #92e4db;
+  --hero-button-end: #3699a2;
+  --hero-button-text: #12343c;
+  --hero-menu-surface: #1c414a;
+  --hero-aqua: #95e2e0;
+  --hero-aqua-light: #b5f1e9;
+  --chip-light: #90d9d5;
+  --chip-label: #c5ddde;
+  --chip-base: #3d919c;
+  --shadow-color: rgba(0, 8, 16, .25);
+}
+
+:root {
+  /* Shared aliases used by legacy sections: DO NOT hardcode theme colors there. */
+  --brand-page: var(--paper);
+  --brand-text: var(--ink);
+  --brand-text-muted: var(--muted);
+  --brand-turquoise: var(--secondary);
+  --brand-turquoise-soft: var(--secondary-soft);
+  --brand-turquoise-pale: var(--warm);
+  --brand-border: var(--line);
+  --premium-ivory: var(--paper);
+  --premium-dark: var(--ink);
+  --premium-teal: var(--secondary);
+  --premium-white: var(--white);
+  --premium-muted: var(--muted);
+  --premium-border: var(--line);
+  --premium-radius: 20px;
+  --premium-radius-lg: 26px;
+  --premium-ease: cubic-bezier(.22,1,.36,1);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Manrope', Arial, sans-serif;
+  --font-ui: var(--font-body);
+  --font-script: 'Allura', 'Brush Script MT', cursive;
+  --font-signature: var(--font-script);
+  --motion-out: cubic-bezier(.22,1,.36,1);
+  --motion-ease: cubic-bezier(.22,1,.36,1);
+  --motion-in-out: cubic-bezier(.76,0,.24,1);
+  --hero-navigation-overlay: rgba(var(--hero-wash-rgb), .92);
+  --hero-button-shadow: 0 14px 30px var(--shadow-color);
+  --hero-button-shadow-hover: 0 18px 38px var(--shadow-color);
+  --hero-photo-fade: 21%;
+  --hero-photo-desktop-width: 53%;
+  --hero-photo-desktop-height: 100%;
+  --hero-photo-mobile-width: 94%;
+  --exp-cream: var(--hero-text);
+  --exp-aqua: var(--hero-aqua);
+  --exp-aqua-light: var(--hero-aqua-light);
+  --exp-aqua-course: var(--secondary);
+  --exp-out: var(--motion-out);
+  --exp-ease: var(--motion-in-out);
+}
+
+/* Editorial palette: cocoa-silk */
+html[data-theme="cocoa-silk"] {
+  --paper: #f8f4f0;
+  --white: #ffffff;
+  --surface: #fdfaf7;
+  --ink: #352a28;
+  --muted: #857670;
+  --secondary: #896b5d;
+  --secondary-ink: #6a4a3e;
+  --secondary-soft: #f2ebe5;
+  --sage: #f0eae4;
+  --warm: #eee6de;
+  --accent: #e6d9cb;
+  --line: #e8ded6;
+  --card: #fffdfb;
+  --card-selected: #f5eee8;
+  --price-bg: #ebe1da;
+  --price-card: #fffdfb;
+  --footer-bg: #f0e7e0;
+  --overlay-card: rgba(255,253,251,.86);
+  --hero-text: #3b302b;
+  --hero-text-soft: #857870;
+  --hero-highlight: #3b302b;
+  --hero-surface: #f2ebe6;
+  --hero-wash-rgb: 248, 244, 240;
+  --hero-button-start: #ad9182;
+  --hero-button-end: #755247;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #f1eae4;
+  --hero-aqua: #896b5d;
+  --hero-aqua-light: #d4b4a3;
+  --chip-light: #d1b5a4;
+  --chip-label: #75665f;
+  --chip-base: #8c6a5b;
+  --shadow-color: rgba(61,40,34,.12);
+}
+
+/* Editorial palette: rosewood */
+html[data-theme="rosewood"] {
+  --paper: #f9f4f3;
+  --white: #ffffff;
+  --surface: #fffbfa;
+  --ink: #403039;
+  --muted: #89777c;
+  --secondary: #864d5b;
+  --secondary-ink: #6d3a49;
+  --secondary-soft: #f6ebed;
+  --sage: #f2e7e7;
+  --warm: #eee3e5;
+  --accent: #e5d5d9;
+  --line: #eadde0;
+  --card: #ffffff;
+  --card-selected: #f5e9ec;
+  --price-bg: #efe3e5;
+  --price-card: #fffdfd;
+  --footer-bg: #f2e6e8;
+  --overlay-card: rgba(255,252,252,.85);
+  --hero-text: #403039;
+  --hero-text-soft: #87777b;
+  --hero-highlight: #403039;
+  --hero-surface: #f3ebeb;
+  --hero-wash-rgb: 249, 244, 243;
+  --hero-button-start: #b88491;
+  --hero-button-end: #7b4051;
+  --hero-button-text: #ffffff;
+  --hero-menu-surface: #f3e8ea;
+  --hero-aqua: #925764;
+  --hero-aqua-light: #d4a3ad;
+  --chip-light: #d8adb6;
+  --chip-label: #786268;
+  --chip-base: #925767;
+  --shadow-color: rgba(85,44,57,.12);
+}
+
+/* Editorial palette: burgundy-noir */
+html[data-theme="burgundy-noir"] {
+  color-scheme: dark;
+  --paper: #241a20;
+  --white: #35252c;
+  --surface: #2d2127;
+  --ink: #f5ebeb;
+  --muted: #d1babc;
+  --secondary: #c99c9d;
+  --secondary-ink: #edc8c7;
+  --secondary-soft: #38292f;
+  --sage: #35272c;
+  --warm: #412f34;
+  --accent: #593e46;
+  --line: #604b50;
+  --card: #35272e;
+  --card-selected: #49323a;
+  --price-bg: #2a1e26;
+  --price-card: #3d2c34;
+  --footer-bg: #1d151a;
+  --overlay-card: rgba(42,27,34,.90);
+  --hero-text: #fff2ed;
+  --hero-text-soft: #e2cacc;
+  --hero-highlight: #fff2ed;
+  --hero-surface: #291c22;
+  --hero-wash-rgb: 36, 26, 32;
+  --hero-button-start: #d6a6a4;
+  --hero-button-end: #ae787e;
+  --hero-button-text: #23171c;
+  --hero-menu-surface: #3c2831;
+  --hero-aqua: #ddadab;
+  --hero-aqua-light: #ebccc9;
+  --chip-light: #e1b4b1;
+  --chip-label: #dfc6c5;
+  --chip-base: #99636d;
+  --shadow-color: rgba(9,4,7,.33);
+}
+
+/* Readable labels on white glass over photography in the new dark palette. */
+html[data-theme="burgundy-noir"] .ed-results__photo-tag,
+html[data-theme="burgundy-noir"] .mk-approach__visual-counter { color: #53323e; }

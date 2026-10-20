@@ -1,5 +1,6 @@
 'use client';
 import { motion, useReducedMotion } from 'motion/react';
+import SectionChip from '../ui/SectionChip';
 import { formats } from '../../data/content';
 import '../../styles/format.css';
 const details = [
@@ -13,7 +14,7 @@ export default function FormatSection(){
  return <section className="ed-format" id="format" aria-labelledby="ed-format-title">
    <div className="ed-format__wrap">
      <div className="ed-format__head">
-       <p className="ed-kicker">07 / КАК ПРОХОДИТ ОБУЧЕНИЕ</p>
+       <SectionChip>Формат</SectionChip>
        <h2 id="ed-format-title">Практика в <em>вашем ритме.</em></h2>
        <p>Около 15 минут в день — понятные занятия без спешки и сложного расписания.</p>
      </div>

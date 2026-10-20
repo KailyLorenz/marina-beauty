@@ -138,3 +138,7 @@
   .mc-float__field { gap: 10px 6px; }
   .mc-float__pill { padding: 11px 9px; }
 }
+
+/* Editorial v1.5 — symmetric heading; floating phrases remain free-form. */
+.mc-float__intro { margin-inline:auto; text-align:center; }
+.mc-float__heading { margin-inline:auto; }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import SectionChip from '../ui/SectionChip';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { photos, num } from '../../data/media';
 import '../../styles/results.css';
@@ -121,7 +122,7 @@ export default function ResultsSection() {
     <section className="ed-results" id="results" aria-labelledby="ed-results-title">
       <div className="ed-results__wrap">
         <div className="ed-results__heading">
-          <p className="ed-kicker">04 / РЕЗУЛЬТАТЫ УЧАСТНИЦ</p>
+          <SectionChip>Результаты</SectionChip>
           <h2 id="ed-results-title">Истории <em>в фотографиях.</em></h2>
           <p>Реальные сравнения «до / после». Каждую историю можно остановить и рассмотреть подробнее.</p>
         </div>

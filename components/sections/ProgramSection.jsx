@@ -1,5 +1,6 @@
 'use client';
 import { useRef, useState } from 'react';
+import SectionChip from '../ui/SectionChip';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { weeks } from '../../data/content';
 import '../../styles/program.css';
@@ -29,7 +30,7 @@ export default function ProgramSection() {
     <section className="ed-program" id="program" aria-labelledby="ed-program-title">
       <div className="ed-program__wrap">
         <div className="ed-program__heading">
-          <p className="ed-kicker">05 / ПРОГРАММА</p>
+          <SectionChip>Программа</SectionChip>
           <h2 id="ed-program-title">Пять недель <em>для себя</em></h2>
           <p>От знакомства с приёмами до самостоятельной практики. Выбирайте неделю и узнавайте, чему она посвящена.</p>
         </div>

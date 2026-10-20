@@ -8,6 +8,7 @@ import Footer from '../components/layout/Footer';
 import HeroSection from '../components/sections/HeroSection';
 import ConcernsSection from '../components/sections/ConcernsSection';
 import FloatingConcerns from '../components/sections/FloatingConcerns';
+import MarinaTransformation from '../components/sections/MarinaTransformation';
 import ReasonsSection from '../components/sections/ReasonsSection';
 import EditorialQuote from '../components/sections/EditorialQuote';
 import ApproachSection from '../components/sections/ApproachSection';
@@ -42,9 +43,11 @@ export default function Home() {
     <main>
       <HeroSection />
       <div className="ribbon"><span>ЛИЦО</span><i>✳</i><span>ШЕЯ</span><i>✳</i><span>ОСАНКА</span><i>✳</i><span>ВНИМАНИЕ К СЕБЕ</span></div>
-      <ConcernsSection />
+
+      <MarinaTransformation />
       <div className="mc-float-shell"><FloatingConcerns /></div>
       <ReasonsSection />
+      <ConcernsSection />
       <EditorialQuote />
       <ApproachSection />
       <ResultsSection />
