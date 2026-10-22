@@ -123,8 +123,8 @@ export default function ResultsSection() {
       <div className="ed-results__wrap">
         <div className="ed-results__heading">
           <SectionChip>Результаты</SectionChip>
-          <h2 id="ed-results-title">Истории <em>в фотографиях.</em></h2>
-          <p>Реальные сравнения «до / после». Каждую историю можно остановить и рассмотреть подробнее.</p>
+          <h2 id="ed-results-title">Посмотрите, как меняется лицо <em>до и после.</em></h2>
+          <p className="ed-results__heading-note">Мои результаты и результаты участниц программ.</p>
         </div>
 
         <div
@@ -147,7 +147,7 @@ export default function ResultsSection() {
                 <motion.img
                   key={index}
                   src={images[index]}
-                  alt={`Фото до и после: история ${index + 1} из ${images.length}`}
+                  alt={`Фото до и после: результат ${index + 1} из ${images.length}`}
                   width="1280"
                   height="1280"
                   loading={index === 0 ? 'eager' : 'lazy'}
@@ -160,14 +160,14 @@ export default function ResultsSection() {
               <span className="ed-results__photo-tag">ДО / ПОСЛЕ</span>
             </div>
 
-            <div className="ed-results__progress" aria-label={`История ${index + 1} из ${images.length}`}>
+            <div className="ed-results__progress" aria-label={`Результат ${index + 1} из ${images.length}`}>
               {images.map((src, i) => (
                 <button
                   type="button"
                   key={src}
                   className={`ed-results__segment${i < index ? ' is-complete' : ''}${i === index ? ' is-current' : ''}`}
                   onClick={() => choose(i)}
-                  aria-label={`Посмотреть историю ${i + 1}`}
+                  aria-label={`Посмотреть результат ${i + 1}`}
                   aria-current={i === index ? 'step' : undefined}
                 >
                   <span
@@ -184,21 +184,8 @@ export default function ResultsSection() {
 
             <div className="ed-results__story" aria-live={isPlaying ? 'off' : 'polite'}>
               <div className="ed-results__story-heading">
-                <span>ИСТОРИЯ {num(index + 1)} / {num(images.length)}</span>
-                <span className="ed-results__status">{paused ? 'На паузе' : 'Реальные фотографии'}</span>
+                <span>РЕЗУЛЬТАТ {num(index + 1)} / {num(images.length)}</span>
               </div>
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={index}
-                  initial={reduced ? false : { opacity: 0, y: 7 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={reduced ? undefined : { opacity: 0, y: -5 }}
-                  transition={{ duration: reduced ? 0 : .24 }}
-                >
-                  <h3>{story.title}</h3>
-                  <p>{story.note}</p>
-                </motion.div>
-              </AnimatePresence>
             </div>
           </div>
 
@@ -223,6 +210,8 @@ export default function ResultsSection() {
             </button>
           </div>
         </div>
+
+        <div className="ed-results__next"><a className="mk-action-link" href="#price">Принять участие <span aria-hidden="true">↗</span></a></div>
 
         <p className="ed-results__disclaimer">
           Освещение, мимика, ракурс и качество снимков могут различаться. Результаты индивидуальны.

@@ -1,0 +1,466 @@
+/* Marina Carper | client edits of 21 Oct 2026
+   Imported LAST so all existing palettes, photos and animations remain intact.
+   The site is intentionally editorial, with smaller titles and tighter spacing. */
+
+/* One visual hierarchy and compact blocks. Do not hide overflowing content. */
+.ed-reasons, .mc-explain, .mk-approach, .mk-story, .ed-results,
+.ed-program, .mk-author, .ed-format, .mk-price, .ed-faq {
+  padding-top: clamp(52px, 6vw, 88px);
+  padding-bottom: clamp(54px, 6vw, 92px);
+}
+.ed-reasons__head h2, .mc-explain__heading h2, .mk-approach__heading h2,
+.mk-story__heading h2, .ed-results__heading h2, .ed-program__heading h2,
+.mk-author__heading h2, .ed-format__head h2, .ed-faq__head h2,
+.mk-final__copy h2 {
+  font-size: clamp(34px, 3.25vw, 48px) !important;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+.ed-reasons__head, .mk-approach__heading, .ed-results__heading,
+.ed-program__heading, .ed-format__head, .ed-faq__head {
+  margin-bottom: clamp(21px, 3vw, 38px);
+}
+/* All section headings and chips center-aligned, without forcing card text to center. */
+.ed-reasons__head,.mc-explain__heading,.mk-approach__heading,
+.mk-story__heading,.ed-results__heading,.ed-program__heading,
+.mk-author__heading,.ed-format__head,.ed-faq__head,.mk-final__copy { text-align:center; }
+
+/* Hero: pill CTA with strong visual affordance; preserve scroll-linked parallax. */
+.exp-hero__copy .exp-hero__cta.exp-hero__cta--pill {
+  position: relative; inset:auto; display: inline-flex;
+  width: auto; height: 57px; min-width: 219px; max-width: 100%;
+  margin: 21px 0 0; padding: 0 13px 0 24px;
+  align-items:center; justify-content:space-between; gap:21px;
+  border:1px solid rgba(255,255,255,.35); border-radius:999px;
+  background: linear-gradient(115deg,var(--hero-button-start),var(--hero-button-end));
+  color:var(--hero-button-text); text-decoration:none; cursor:pointer;
+  box-shadow:var(--hero-button-shadow,0 12px 30px rgba(25,95,102,.18));
+  transform: none; opacity:1;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.exp-hero__cta--pill .exp-hero__cta-label {
+  position:static; width:auto; height:auto;
+  color:inherit; font:600 13px/1.2 var(--font-ui);letter-spacing:.02em;
+  text-transform:none;transform:none; white-space:nowrap;
+}
+.exp-hero__cta--pill .exp-hero__cta-icon {
+  flex:0 0 31px; width:31px;height:31px;
+  border-radius:50%;display:grid;place-items:center;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+  font-size:19px;transition:transform .25s ease;
+}
+@media(hover:hover){
+ .exp-hero__copy .exp-hero__cta--pill:hover {transform:translateY(-3px);box-shadow:var(--hero-button-shadow-hover,0 18px 42px rgba(25,95,102,.25));}
+ .exp-hero__cta--pill:hover .exp-hero__cta-icon {transform:translate(3px,-2px);}
+}
+.exp-hero__copy .exp-hero__cta--pill:focus-visible{outline:3px solid var(--secondary);outline-offset:4px;}
+.exp-hero .exp-hero__description {max-width:480px;margin-top:20px;color:var(--hero-text);font-size:clamp(14px,1.18vw,17px);font-weight:600;line-height:1.55;}
+.exp-hero__description p {margin:0;}
+.exp-hero__description p + p {margin-top:7px;}
+
+/* Educational reasons: the exact three cards Marina approved. */
+.ed-reasons__head {max-width:950px;}
+.ed-reasons__card h3 {font-size:clamp(20px,1.65vw,25px);}
+.ed-reasons__image{aspect-ratio:1.38;}
+.ed-reasons__card-copy {min-height:0; padding:18px 20px 21px;}
+.ed-reasons__card p {font-size:12px;line-height:1.65;margin-top:6px;}
+.ed-reasons__summary {display:none;} /* avoid additional sales copy Marina asked to remove */
+
+/* Restored mirror observation block (second screenshot). */
+.mc-float-shell {background:var(--paper);padding:0 0 34px;}
+.mc-float-shell > .mc-mirror {
+  width:min(calc(100% - 36px),1180px);margin:auto;
+}
+.mc-mirror { padding:32px clamp(22px,4vw,56px) 22px; border-radius:24px;
+  border:1px solid var(--line); background:var(--surface); color:var(--ink); }
+.mc-mirror__top {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(24px,5vw,72px);}
+.mc-mirror__intro{text-align:left;}
+.mc-mirror__intro h2 {margin:0;font:400 clamp(33px,3.3vw,47px)/1.08 var(--font-display);letter-spacing:-.032em;}
+.mc-mirror__intro h2 em{color:var(--secondary-ink);}
+.mc-mirror__photo {margin:0;height:clamp(225px,25vw,315px);overflow:hidden;border-radius:19px;background:var(--warm);}
+.mc-mirror__photo img {height:100%;width:100%;display:block;object-fit:cover;object-position:50% 24%;}
+.mc-mirror__signs {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:21px;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--line);}
+.mc-mirror__sign {padding:17px 15px 19px;min-height:116px;background:var(--card);}
+.mc-mirror__sign:nth-child(even){background:var(--secondary-soft);}
+.mc-mirror__sign>span{font:600 10px var(--font-body);letter-spacing:.06em;color:var(--secondary);}
+.mc-mirror__sign p{margin:9px 0 0;font:400 14px/1.5 var(--font-display);color:var(--ink);}
+
+/* The video only needs one clear heading and one short explanation. */
+.mc-explain__heading{max-width:950px;margin:0 auto 26px;}
+.mc-explain__container {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);
+  gap:clamp(25px,5vw,70px);align-items:center;}
+.mc-explain__copy {align-self:center;}
+.mc-explain__lead {font-size:clamp(16px,1.5vw,20px);line-height:1.65;}
+.mc-explain__video-col {min-width:0;}
+.mc-explain__video-cover {max-height:500px;}
+.mc-explain__video-top,.mc-explain__video-caption,.mc-explain__video-footnote {display:none;}
+
+/* Four practices: no duplicated counters, less copy, card doesn't tower. */
+.mk-approach__heading{display:block;text-align:center;}
+.mk-approach__heading>div{width:100%;}
+.mk-approach__intro{display:none;}
+.mk-approach__visual-counter{display:none;}
+.mk-approach__text{min-width:0;}
+.mk-approach__number{font-size:11px;}
+.mk-approach__technique {margin-top:14px;}
+.mk-approach__technique p{margin-top:4px;}
+.mk-approach__item {min-height:0;}
+
+/* Story: real face should be visible from forehead to chin; no overlay captions. */
+.mk-story__photo--before {object-fit:contain !important;object-position:center !important;background:var(--secondary-soft);}
+.mk-story__photo-caption,.mk-story__scrim,.mk-story__meta{display:none !important;}
+.mk-story__frame {max-width:520px;}
+.mk-story__picture {aspect-ratio: .76;}
+.mk-story__copy {align-self:center;}
+.mk-story__lead {font-size:clamp(16px,1.5vw,20px);}
+.mk-story__body {font-size:clamp(14px,1.17vw,16px);}
+
+/* Results: image only, counter below; no wordy photo descriptions. */
+.ed-results__heading-note{font:400 15px/1.5 var(--font-body);color:var(--muted);margin-top:10px;}
+.ed-results__story{padding:12px 18px !important; min-height:0 !important;}
+.ed-results__story-heading{margin:0;}
+.ed-results__next{text-align:center;margin-top:24px;}
+.mk-action-link{display:inline-flex;align-items:center;justify-content:center;gap:29px;min-height:52px;
+  padding:12px 24px;border-radius:999px;background:linear-gradient(115deg,var(--hero-button-start),var(--hero-button-end));
+  color:var(--hero-button-text);font:600 13px/1.4 var(--font-body);box-shadow:var(--hero-button-shadow);}
+.mk-action-link:hover{transform:translateY(-2px);}
+
+/* Accessible accordion (old program component archived). */
+.ed-program--accordion .ed-program__wrap{max-width:930px;}
+.ed-program--accordion .ed-program__heading{margin-bottom:26px;}
+.mk-weeks{border-top:1px solid var(--line);}
+.mk-weeks__item{border-bottom:1px solid var(--line);}
+.mk-weeks__question{margin:0;font-weight:normal;}
+.mk-weeks__question button{width:100%;min-height:75px;padding:14px 9px;background:transparent;border:0;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;text-align:left;color:var(--ink);
+  font:400 clamp(21px,1.85vw,27px)/1.3 var(--font-display);cursor:pointer;}
+.mk-weeks__question button strong{font-weight:400;}
+.mk-weeks__question button:focus-visible{outline:2px solid var(--secondary);outline-offset:-2px;}
+.mk-weeks__symbol{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border-radius:50%;
+  background:var(--secondary-soft);color:var(--secondary-ink);font:400 25px/1 var(--font-body);transition:transform .2s;}
+.mk-weeks__question button:hover .mk-weeks__symbol {transform:scale(1.08);}
+.mk-weeks__answer{padding:0 68px 21px 10px;}
+.mk-weeks__answer[hidden]{display:none;}
+.mk-weeks__answer p{margin:0;max-width:660px;color:var(--muted);font:400 14px/1.7 var(--font-body);}
+
+/* About author: one title, always centered, counters remain visible. */
+.mk-author__heading {max-width:1050px;}
+.mk-author__lead{font:500 clamp(19px,1.8vw,25px)/1.5 var(--font-body);}
+.mk-author__visual{max-height:580px;}
+.mk-author__visual img{object-fit:cover;object-position:center 22%;}
+.mk-author__statistics{scroll-margin-top:110px;}
+
+/* Format: one photo and single quiet supporting CTA. Do not crop Marina's forehead. */
+.ed-format--clean .ed-format__head{margin-bottom:25px;}
+.mk-format-simple{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1fr);align-items:center;gap:clamp(25px,5vw,74px);max-width:960px;margin:auto;}
+.mk-format-simple__image{height:340px;margin:0;overflow:hidden;border-radius:19px;background:var(--warm);}
+.mk-format-simple__image img{width:100%;height:100%;object-fit:cover;object-position:center 13%;}
+.mk-format-simple__copy p{font:400 clamp(18px,1.6vw,23px)/1.55 var(--font-display);color:var(--ink);max-width:400px;}
+.mk-format-simple__link{display:inline-flex;gap:14px;margin-top:12px;align-items:center;border-bottom:1px solid var(--secondary);padding-bottom:6px;color:var(--secondary-ink);font:600 13px var(--font-body);}
+
+/* Price: no title atop the entire section; just portrait and one compact offer. */
+.mk-price {padding-top:clamp(46px,5vw,70px);padding-bottom:clamp(46px,5vw,70px);}
+.mk-price__shell{grid-template-columns:minmax(0,.83fr) minmax(0,1fr);gap:clamp(22px,4vw,64px);align-items:center;max-width:990px;}
+.mk-price__intro{display:flex;align-items:center;justify-content:center;}
+.mk-price__portrait{width:min(100%,330px);height:360px;margin:0;overflow:hidden;border-radius:22px;box-shadow:0 22px 45px var(--shadow-color);}
+.mk-price__portrait img{width:100%;height:100%;object-fit:cover;object-position:center 10%;}
+.mk-price__card{padding:clamp(23px,3vw,37px);}
+.mk-price__product-title{margin:0 0 20px;font:400 clamp(30px,2.7vw,38px)/1.12 var(--font-display);letter-spacing:-.035em;}
+.mk-price__product-title em{color:var(--secondary-ink);}
+.mk-price__price-block{margin:14px 0 15px;padding:14px 0 17px;}
+.mk-price__amount{font-size:clamp(55px,5vw,72px);}
+.mk-price__countdown{margin:0 0 16px;padding:11px 13px;border-radius:12px;}
+.countdown-units{margin-top:7px;gap:5px;}
+.countdown-unit{padding:6px 3px;border-radius:8px;gap:1px;}
+.countdown-unit strong{font-size:clamp(20px,2vw,29px);}
+.mk-price__cta{border-radius:999px;min-height:53px;}
+.mk-price__footer{margin:12px 0 0;font-size:11px;}
+
+/* FAQ and final call to action: short, focused, no extra paragraph. */
+.ed-faq__head p{display:none;}
+.mk-final--simple{padding:clamp(58px,7vw,85px) 18px 0;}
+.mk-final--simple .mk-final__copy h2 em{display:inline;}
+.mk-final--simple .mk-final__contacts{margin-top:clamp(36px,5vw,65px);}
+.mk-final__channels button{cursor:pointer;}
+
+@media(max-width:760px){
+ .ed-reasons, .mc-explain, .mk-approach, .mk-story, .ed-results, .ed-program,
+ .mk-author, .ed-format, .mk-price, .ed-faq {padding-top:55px;padding-bottom:60px;}
+ .ed-reasons__head h2, .mc-explain__heading h2, .mk-approach__heading h2,
+ .mk-story__heading h2, .ed-results__heading h2, .ed-program__heading h2,
+ .mk-author__heading h2,.ed-format__head h2,.ed-faq__head h2,.mk-final__copy h2 {
+   font-size:clamp(29px,7.4vw,35px) !important;line-height:1.08;
+ }
+ .mc-mirror{padding:22px 17px;}
+ .mc-mirror__top{grid-template-columns:1fr;gap:15px;}
+ .mc-mirror__intro{text-align:center;}
+ .mc-mirror__intro h2{font-size:clamp(29px,7.4vw,35px);}
+ .mc-mirror__photo{height:235px;}
+ .mc-mirror__signs{grid-template-columns:repeat(2,minmax(0,1fr));}
+ .mc-mirror__sign{min-height:99px;padding:13px;}
+ .mc-mirror__sign p{font-size:13px;}
+ .mc-explain__container{grid-template-columns:1fr;gap:25px;}
+ .mc-explain__copy{text-align:center;}
+ .mc-explain__lead{font-size:15px;}
+ .mc-explain__video-col{max-width:400px;margin:0 auto;width:100%;}
+ .mk-story__picture{aspect-ratio:.71;}
+ .mk-format-simple{grid-template-columns:1fr;gap:20px;}
+ .mk-format-simple__image{height:280px;max-width:440px;width:100%;margin:auto;}
+ .mk-format-simple__copy{text-align:center;}
+ .mk-format-simple__copy p{font-size:23px;margin:0 auto;}
+ .mk-price__shell{grid-template-columns:1fr;gap:21px;max-width:440px;}
+ .mk-price__portrait{width:min(100%,270px);height:230px;}
+ .mk-price__product-title{text-align:center;font-size:clamp(27px,6.8vw,34px);}
+ .mk-weeks__question button{min-height:65px;font-size:clamp(19px,5vw,23px);}
+ .mk-weeks__answer{padding-right:15px;}
+}
+@media(max-width:600px){
+ .exp-hero .exp-hero__description{max-width:220px;font-size:clamp(11px,3vw,13px);line-height:1.37;margin-top:12px;}
+ .exp-hero__description p + p{margin-top:5px;}
+ .exp-hero__copy .exp-hero__cta.exp-hero__cta--pill{height:44px;min-width:0;width:min(100%,188px);padding:0 8px 0 14px;margin-top:13px;gap:7px;}
+ .exp-hero__cta--pill .exp-hero__cta-label{font-size:11px;}
+ .exp-hero__cta--pill .exp-hero__cta-icon{width:27px;height:27px;flex-basis:27px;font-size:16px;}
+ .mk-story__photo--before {object-fit:contain !important;}
+ .mk-final--simple .mk-final__copy h2{font-size:clamp(29px,7.4vw,35px) !important;}
+}
+@media(prefers-reduced-motion:reduce){
+ .mk-action-link,.mk-weeks__symbol,.exp-hero__copy .exp-hero__cta.exp-hero__cta--pill {transition:none !important;}
+}
+
+/* 21.10: заметно более компактная типографика по последнему референсу. */
+@media (min-width: 761px) {
+  .ed-reasons__head h2, .mc-explain__heading h2, .mk-approach__heading h2,
+  .mk-story__heading h2, .ed-results__heading h2, .ed-program__heading h2,
+  .mk-author__heading h2, .ed-format__head h2, .ed-faq__head h2,
+  .mk-final__copy h2 { max-width: 890px; margin-inline: auto; }
+  .ed-reasons__head, .mc-explain__heading, .mk-approach__heading,
+  .mk-story__heading, .ed-results__heading, .ed-program__heading,
+  .mk-author__heading, .ed-format__head, .ed-faq__head { margin-bottom: 26px; }
+}
+@media (max-width: 760px) {
+  .ed-reasons__head h2, .mc-explain__heading h2, .mk-approach__heading h2,
+  .mk-story__heading h2, .ed-results__heading h2, .ed-program__heading h2,
+  .mk-author__heading h2, .ed-format__head h2, .ed-faq__head h2,
+  .mk-final__copy h2 { max-width: 100%; }
+  .mk-weeks__question button { font-size: clamp(18px, 4.9vw, 23px); }
+  .ed-reasons__card h3 { font-size: 22px; }
+  .mc-mirror__sign p { font-size: 13px; }
+}
+
+/* Масштаб Hero остаётся выше остальных разделов, но без гигантских строк. */
+@media(min-width: 761px) {
+  .exp-hero h1 { font-size: clamp(46px, 4.2vw, 64px) !important; line-height: 1.035; }
+}
+@media(max-width: 760px) {
+  .exp-hero h1 { font-size: clamp(29px, 7.9vw, 37px) !important; line-height: 1.08; }
+}
+/* На фотографии из блока «Формат» важно показывать всю голову. */
+.mk-format-simple__image img { object-position: center top !important; }
+
+/* После FAQ сначала вопросы, затем финальный CTA. */
+.mk-final--simple .mk-final__contacts {
+  margin: 0 auto clamp(34px,4vw,55px);
+  padding: 0;
+  border-top: 0;
+  justify-content: center;
+  flex-direction: column;
+  gap: 13px;
+}
+.mk-final--simple .mk-final__channels { justify-content: center; }
+.mk-final--simple .mk-final__copy { padding: 0 0 clamp(60px,6vw,90px); }
+.mk-final--simple .mk-final__copy h2 { max-width: 800px; }
+
+
+/* 21.10 final pass — keep Hero from client review, restore ordered blocks and cleaner cards layout. */
+.mc-mirror__eyebrow {
+  margin: 0 0 14px;
+  color: var(--secondary-ink);
+  font: 500 14px/1.35 var(--font-body);
+}
+.mc-mirror__intro h2 {
+  font-size: clamp(38px, 3.7vw, 54px);
+  line-height: 1.05;
+}
+.mc-mirror__photo {
+  height: clamp(300px, 28vw, 390px);
+  background: var(--warm);
+}
+.mc-mirror__photo img {
+  object-fit: cover;
+  object-position: center center;
+}
+.mc-mirror__sign p {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* Story transition: remove side gaps on the first image and keep both states inside one stable frame. */
+.mk-story__frame { overflow: hidden; }
+.mk-story__picture { aspect-ratio: .76; }
+.mk-story__photo--before,
+.mk-story__photo--after {
+  object-fit: cover !important;
+}
+.mk-story__photo--before {
+  object-position: 50% 30% !important;
+  transform: scale(1.01);
+  background: var(--card-selected);
+}
+.mk-story__photo--after {
+  object-position: 50% 36%;
+}
+
+/* Format section styles live in styles/format.css to avoid conflicting
+   object-fit and layout rules. Keep related typography in that file. */
+
+/* Menu polishing with the approved logo. */
+.exp-menu__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+.exp-menu__brand img {
+  width: 28px;
+  height: 28px;
+}
+.exp-menu__brand span {
+  font-family: var(--font-script);
+  font-size: 31px;
+  line-height: .9;
+  transform: rotate(-4deg);
+}
+
+@media (max-width: 760px) {
+  .mc-mirror__eyebrow { font-size: 13px; margin-bottom: 10px; }
+  .mc-mirror__intro h2 { font-size: clamp(31px, 7.5vw, 39px); }
+  .mc-mirror__photo { height: 275px; }
+  .mk-story__picture { aspect-ratio: .82; }
+}
+
+.exp-header__brand img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  opacity: .95;
+}
+.exp-header--compact .exp-header__brand img,
+.exp-header--open .exp-header__brand img {
+  width: 22px;
+  height: 22px;
+}
+
+/* Story: fixed image geometry during Light Dissolve; only the light mask animates. */
+.mk-story__picture--before .mk-story__photo--before,
+.mk-story__picture--revealing .mk-story__photo--before,
+.mk-story__picture--after .mk-story__photo--before {
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+.mk-story__photo--after {
+  transform: none !important;
+  transition: none !important;
+}
+
+
+/* PRICE — компактный горизонтальный таймер */
+
+.mk-price .mk-price__countdown {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--secondary-soft);
+}
+
+.mk-price__countdown .countdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Подпись слева */
+.mk-price__countdown .countdown-top {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 6px;
+  white-space: nowrap;
+
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.mk-price__countdown .countdown-pulse {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  margin: 0;
+}
+
+/* Четыре компактных счётчика справа */
+.mk-price__countdown .countdown-units {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  flex: 1;
+  gap: 5px;
+  margin: 0;
+}
+
+.mk-price__countdown .countdown-unit {
+  min-width: 0;
+  padding: 7px 3px 5px;
+  gap: 2px;
+
+  background: var(--price-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+/* Цифры */
+.mk-price__countdown .countdown-unit strong {
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Дни, часы, минуты, секунды */
+.mk-price__countdown .countdown-unit span {
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+/* Мобильная версия */
+@media (max-width: 480px) {
+  .mk-price .mk-price__countdown {
+    padding: 9px;
+  }
+
+  .mk-price__countdown .countdown {
+    gap: 7px;
+  }
+
+  .mk-price__countdown .countdown-top {
+    font-size: 10px;
+  }
+
+  .mk-price__countdown .countdown-units {
+    gap: 3px;
+  }
+
+  .mk-price__countdown .countdown-unit {
+    padding: 6px 2px 4px;
+  }
+
+  .mk-price__countdown .countdown-unit strong {
+    font-size: 19px;
+  }
+
+  .mk-price__countdown .countdown-unit span {
+    font-size: 8px;
+  }
+}

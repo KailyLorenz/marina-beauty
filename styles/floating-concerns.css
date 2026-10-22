@@ -142,3 +142,211 @@
 /* Editorial v1.5 — symmetric heading; floating phrases remain free-form. */
 .mc-float__intro { margin-inline:auto; text-align:center; }
 .mc-float__heading { margin-inline:auto; }
+
+
+/* ================================================================
+   MARINA | MIRROR EDITORIAL (2026-10-22)
+   Open, frameless composition. Overrides old mc-mirror rules in
+   marina-client-review.css without affecting the retired mc-float.
+   All colors use semantic theme variables.
+   ================================================================ */
+
+.mc-float-shell > .mc-mirror.mc-mirror--editorial {
+  box-sizing: border-box;
+  width: min(92%, 1320px);
+  max-width: none;
+  margin: 0 auto;
+  padding: clamp(54px, 6.2vw, 94px) 0 clamp(52px, 5.7vw, 88px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+/* The photo and headline share one optical baseline. */
+.mc-mirror--editorial .mc-mirror__top {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+  align-items: center;
+  column-gap: clamp(36px, 5.5vw, 90px);
+  row-gap: 28px;
+}
+
+.mc-mirror--editorial .mc-mirror__intro {
+  min-width: 0;
+  max-width: 590px;
+  text-align: left;
+}
+
+.mc-mirror--editorial .mc-mirror__eyebrow {
+  margin: 0 0 clamp(13px, 1.6vw, 24px);
+  color: var(--secondary-ink);
+  font: 500 12px/1.4 var(--font-body);
+  letter-spacing: 0.025em;
+}
+
+.mc-mirror--editorial .mc-mirror__intro h2 {
+  max-width: 670px;
+  margin: 0;
+  color: var(--ink);
+  font: 400 clamp(37px, 3.45vw, 54px)/1.045 var(--font-display);
+  letter-spacing: -0.037em;
+  text-wrap: balance;
+}
+
+.mc-mirror--editorial .mc-mirror__intro h2 em {
+  color: var(--secondary-ink);
+  font-weight: 400;
+}
+
+/* Only the photograph has rounded corners. No outer card or nested frame. */
+.mc-mirror--editorial .mc-mirror__photo {
+  width: 100%;
+  height: clamp(310px, 29vw, 420px);
+  min-height: 0;
+  margin: 0;
+  border: 0;
+  border-radius: clamp(18px, 1.7vw, 24px);
+  background: var(--warm);
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.mc-mirror--editorial .mc-mirror__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+}
+
+/* Four text columns; a single hairline instead of five boxes. */
+.mc-mirror--editorial .mc-mirror__signs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: clamp(28px, 3vw, 44px);
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.mc-mirror--editorial .mc-mirror__sign {
+  min-width: 0;
+  min-height: 0;
+  padding: 24px clamp(13px, 1.8vw, 26px) 4px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.mc-mirror--editorial .mc-mirror__sign:nth-child(even) {
+  background: transparent;
+}
+
+.mc-mirror--editorial .mc-mirror__sign + .mc-mirror__sign {
+  border-left: 1px solid var(--line);
+}
+
+.mc-mirror--editorial .mc-mirror__sign:first-child {
+  padding-left: 0;
+}
+
+.mc-mirror--editorial .mc-mirror__sign:last-child {
+  padding-right: 0;
+}
+
+.mc-mirror--editorial .mc-mirror__sign > span {
+  display: block;
+  color: var(--secondary);
+  font: 600 10px/1.4 var(--font-body);
+  letter-spacing: .12em;
+}
+
+.mc-mirror--editorial .mc-mirror__sign p {
+  margin: 13px 0 0;
+  color: var(--ink);
+  font: 400 clamp(16px, 1.34vw, 20px)/1.36 var(--font-display);
+  letter-spacing: -.008em;
+}
+
+@media (max-width: 850px) {
+  .mc-float-shell > .mc-mirror.mc-mirror--editorial {
+    width: min(calc(100% - 44px), 720px);
+    padding: 60px 0 65px;
+  }
+  .mc-mirror--editorial .mc-mirror__top {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 25px;
+  }
+  .mc-mirror--editorial .mc-mirror__intro {
+    max-width: 660px;
+  }
+  .mc-mirror--editorial .mc-mirror__intro h2 {
+    font-size: clamp(35px, 5vw, 46px);
+  }
+  .mc-mirror--editorial .mc-mirror__photo {
+    height: clamp(310px, 50vw, 425px);
+  }
+  .mc-mirror--editorial .mc-mirror__signs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 28px;
+  }
+  .mc-mirror--editorial .mc-mirror__sign {
+    padding: 19px 22px 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .mc-mirror--editorial .mc-mirror__sign + .mc-mirror__sign {
+    border-left: 0;
+  }
+  .mc-mirror--editorial .mc-mirror__sign:nth-child(even) {
+    border-left: 1px solid var(--line);
+    padding-left: 22px;
+    padding-right: 0;
+  }
+  .mc-mirror--editorial .mc-mirror__sign p {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mc-float-shell > .mc-mirror.mc-mirror--editorial {
+    width: calc(100% - 36px);
+    padding: 48px 0 54px;
+  }
+  .mc-mirror--editorial .mc-mirror__eyebrow {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+  .mc-mirror--editorial .mc-mirror__intro h2 {
+    font-size: clamp(32px, 8.4vw, 40px);
+    line-height: 1.07;
+  }
+  .mc-mirror--editorial .mc-mirror__photo {
+    height: auto;
+    aspect-ratio: 1.18;
+    border-radius: 17px;
+  }
+  .mc-mirror--editorial .mc-mirror__signs {
+    grid-template-columns: 1fr;
+    margin-top: 23px;
+  }
+  .mc-mirror--editorial .mc-mirror__sign,
+  .mc-mirror--editorial .mc-mirror__sign:nth-child(even) {
+    border-left: 0;
+    padding: 16px 0;
+  }
+  .mc-mirror--editorial .mc-mirror__sign p {
+    margin-top: 5px;
+    font-size: 17px;
+    line-height: 1.37;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-mirror--editorial .mc-mirror__photo img { transition: none; }
+}

@@ -30,7 +30,7 @@ export default function ConcernsSection() {
     <section className="mc-explain" id="concerns" aria-labelledby="mc-explain-title">
       <div className="mc-explain__heading">
         <SectionChip>Разбор на модели</SectionChip>
-        <h2 id="mc-explain-title">Что влияет на <em>внешний вид лица?</em></h2>
+        <h2 id="mc-explain-title">Почему появляются носогубки <em>и лицо «плывёт» вниз?</em></h2>
       </div>
       <div className="mc-explain__container">
         <motion.div
@@ -40,15 +40,7 @@ export default function ConcernsSection() {
           viewport={{ once: true, amount: 0.18 }}
           transition={{ duration: 0.7 }}
         >
-          <p className="mc-explain__lead">
-            Иногда изменения заметны в области носогубных складок, щёк или линии нижней челюсти.
-            В коротком видео я показываю на модели зоны лица и объясняю, на что обращаю внимание в своей практике.
-          </p>
-          <div className="mc-explain__note">
-            <span className="mc-explain__note-line" aria-hidden="true" />
-            <p>Здесь важен не один участок, а взаимосвязь лица, шеи и осанки.</p>
-          </div>
-          <a className="mc-explain__learn" href="#reasons">Посмотреть схему причин <span aria-hidden="true">↗</span></a>
+          <p className="mc-explain__lead">Показываю на модели, как на это влияют мышцы лица, шея и осанка.</p>
         </motion.div>
 
         <motion.div
@@ -70,10 +62,7 @@ export default function ConcernsSection() {
             <span className="mc-explain__glass-play" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="m8 5 11 7-11 7V5Z" /></svg>
             </span>
-            <span className="mc-explain__video-top">ФРАГМЕНТ ЗАНЯТИЯ</span>
-            <span className="mc-explain__video-caption">Почему меняется лицо? <small>Смотреть объяснение ↗</small></span>
           </button>
-          <p className="mc-explain__video-footnote">Фрагмент моего занятия: показываю и объясняю на модели.</p>
         </motion.div>
       </div>
 

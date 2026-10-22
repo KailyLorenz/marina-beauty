@@ -5,9 +5,9 @@ import { animate, motion, useInView, useReducedMotion } from 'motion/react';
 import '../../styles/author.css';
 
 const credentials = [
-  'Коррекция осанки и сколиоза — дипломированная подготовка',
-  'Восстановление женского тела — профильное обучение',
-  'Создаю программы для лица, шеи и осанки',
+  'Дипломированный специалист по коррекции осанки и сколиоза',
+  'Дипломированный специалист по восстановлению женского тела',
+  'Автор программ по омоложению лица и коррекции осанки',
 ];
 
 function AnimatedNumber({ value, started, reducedMotion, duration = 1.7 }) {
@@ -48,7 +48,7 @@ export default function AuthorSection() {
   return (
     <section className="mk-author" id="author" aria-labelledby="mk-author-title">
       <div className="mk-author__heading">
-        <motion.h2 id="mk-author-title" {...appear(0.10)}>Обо <em>мне.</em></motion.h2>
+        <motion.h2 id="mk-author-title" {...appear(0.10)}>Автор программы — <em>Марина Карпер</em></motion.h2>
       </div>
       <div className="mk-author__layout">
         <motion.figure className="mk-author__visual" {...appear(0)}>
@@ -64,7 +64,7 @@ export default function AuthorSection() {
 
         <div className="mk-author__content">
           <motion.p className="mk-author__lead" {...appear(0.17)}>
-            Я помогаю женщинам бережно работать с лицом, шеей и осанкой — через внимание к телу и регулярную практику.
+            Эксперт по естественному омоложению лица
           </motion.p>
 
           <ul className="mk-author__credentials">
@@ -89,7 +89,7 @@ export default function AuthorSection() {
                 <AnimatedNumber value={2000} started={statsInView || noMotion} reducedMotion={noMotion} duration={2} />
                 <span>+</span>
               </strong>
-              <p>женщин прошли программы<br />и получили результаты</p>
+              <p>женщин<br />прошли мои программы</p>
             </motion.div>
           </div>
         </div>

@@ -59,6 +59,7 @@ export default function ExperienceHeader() {
       <>
         <header ref={headerRef} className={`exp-header ${compact ? "exp-header--compact" : ""} ${menuOpen ? "exp-header--open" : ""}`}>
           <a className="exp-header__brand" href="#top" onClick={close} aria-label="Marina Carper — на главную">
+            <img src="/images/marina-facial-symbol.png" alt="" aria-hidden="true" />
             <span>Marina Carper</span>
           </a>
 
@@ -77,8 +78,12 @@ export default function ExperienceHeader() {
 
         <div className={`exp-menu ${menuOpen ? "exp-menu--open" : ""}`} id="exp-fullscreen-menu" aria-hidden={!menuOpen}>
           <div className="exp-menu__inner">
+            <div className="exp-menu__brand" aria-hidden="true">
+              <img src="/images/marina-facial-symbol.png" alt="" />
+              <span>Marina Carper</span>
+            </div>
             <p className="exp-menu__eyebrow">НАВИГАЦИЯ</p>
-            <nav aria-label="Разделы сайта" inert={!menuOpen}>
+            <nav aria-label="Разделы сайта" inert={!menuOpen ? '' : undefined}>
               {links.map(([name, href], index) => (
                   <a href={href} key={href} onClick={close} tabIndex={menuOpen ? 0 : -1}>
                     <small>{String(index + 1).padStart(2, "0")}</small>{name}

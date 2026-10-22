@@ -12,8 +12,8 @@ export const siteConfig = {
   promoPrice: 9700,             // Discounted course price during the active offer
   promoEndsAt: '2026-11-01T00:00:00+02:00', // Must be a real approved deadline
   checkoutUrl: '',             // GetCourse checkout URL (must match charged amount)
-  maxUrl: '',
-  telegramUrl: '',
-  vkUrl: '',
+  maxUrl: 'https://max.ru/u/f9LHodDocOKIcEuRivg4NH_Lfpm4imRaTjIVGeP7rzQI5ppCJ_qHIdMhFOA',
+  telegramUrl: 'https://t.me/m/IFw6hQ4iYmRi',
+  vkUrl: 'https://vk.ru/marinacarper',
   contraindications: '',      // Approved contraindications before publishing
 };

@@ -11,7 +11,7 @@ const practiceItems = [
   {
     title: methods[0][0],
     description: methods[0][1],
-    technique: methods[0][2],
+    technique: "Глубокие миофасциальные техники",
     photoDescription: methods[0][3],
     cover: "/images/marina-approach-01.webp",
     video: "/videos/marina-practice-01.mp4",
@@ -19,7 +19,7 @@ const practiceItems = [
   {
     title: methods[1][0],
     description: methods[1][1],
-    technique: methods[1][2],
+    technique: "Лимфодренажные техники",
     photoDescription: methods[1][3],
     cover: "/images/marina-approach-02.webp",
     video: "/videos/marina-practice-02.mp4",
@@ -27,7 +27,7 @@ const practiceItems = [
   {
     title: methods[2][0],
     description: methods[2][1],
-    technique: methods[2][2],
+    technique: "Миофасциальный релиз и упражнения",
     photoDescription: methods[2][3],
     cover: "/images/marina-approach-03.webp",
     video: "/videos/marina-practice-03.mp4",
@@ -35,7 +35,7 @@ const practiceItems = [
   {
     title: methods[3][0],
     description: methods[3][1],
-    technique: methods[3][2],
+    technique: "Упражнения для осанки",
     photoDescription: methods[3][3],
     cover: "/images/marina-approach-04.webp",
     video: "/videos/marina-practice-04.mp4",
@@ -69,12 +69,9 @@ export default function ApproachSection() {
           <div>
             <SectionChip>Методика</SectionChip>
             <h2 id="mk-approach-heading">
-              Как будем <em>работать с лицом</em>
+              Как будем <em>подтягивать лицо</em>
             </h2>
           </div>
-          <p className="mk-approach__intro">
-            Четыре направления практики с короткими видеофрагментами. Мой разбор на модели можно посмотреть выше.
-          </p>
         </div>
 
         <div className="mk-approach__list">
@@ -112,16 +109,11 @@ export default function ApproachSection() {
                     <span className="mk-visually-hidden">Смотреть фрагмент</span>
                   </button>
                 )}
-
-                <span className="mk-approach__visual-counter" aria-hidden="true">
-                  ПРАКТИКА {num(index + 1)}
-                </span>
               </div>
 
               <div className="mk-approach__text">
                 <div className="mk-approach__number" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                  <span> / {String(practiceItems.length).padStart(2, "0")}</span>
+                  {String(index + 1).padStart(2, "0")} / {String(practiceItems.length).padStart(2, "0")}
                 </div>
                 <h3>{item.title}</h3>
                 <p className="mk-approach__description">{item.description}</p>

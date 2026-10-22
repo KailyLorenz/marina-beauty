@@ -84,14 +84,14 @@ export default function ExperienceHero() {
   const heroRef = useHeroParallax();
 
   return (
-    <section ref={heroRef} className="exp-hero" id="top" aria-label="Авторский курс Марины Карпер по работе с лицом">
+    <section ref={heroRef} className="exp-hero" id="top" aria-label="Интенсив Марины Карпер по работе с лицом">
       <div className="exp-hero__light" aria-hidden="true" />
       <div className="exp-hero__portrait" aria-hidden="true">
         <img src="/images/marina-hero-new.jpg" alt="" width="853" height="1280" fetchPriority="high" />
       </div>
       <div className="exp-hero__inner">
         <div className="exp-hero__copy">
-          <p className="exp-hero__eyebrow">Авторский курс</p>
+          {/* По просьбе Марины убрали подпись «Авторский курс». */}
           <h1>
             <span className="exp-hero__desktop-line">Носогубные складки,</span>
             <span className="exp-hero__desktop-line">уставшее и «поплывшее»</span>
@@ -100,12 +100,17 @@ export default function ExperienceHero() {
             <span className="exp-hero__mobile-line">складки?</span>
             <span className="exp-hero__mobile-line">Уставшее и</span>
             <span className="exp-hero__mobile-line">«поплывшее»</span>
-            <span className="exp-hero__mobile-line">лицо?</span>
+            <span className="exp-hero__mobile-line">вниз лицо?</span>
           </h1>
-          <p className="exp-hero__description">5-недельная программа для работы<br className="exp-desktop-only" /> со средней частью лица</p>
-          <a className="exp-hero__cta" href="#price" aria-label="Принять участие — перейти к стоимости курса">
-            <span className="exp-hero__cta-arrow" aria-hidden="true"><svg viewBox="0 0 44 18" focusable="false"><path d="M2 9h36"/><path d="m31 3 9 6-9 6"/></svg></span>
-            <span className="exp-hero__cta-face"><svg className="exp-hero__cta-outline" viewBox="0 0 160 160" aria-hidden="true" focusable="false"><circle cx="80" cy="80" r="78"/></svg><span className="exp-hero__cta-label">ПРИНЯТЬ<br/>УЧАСТИЕ</span></span>
+          {/* Новые тезисы Hero: вместо длинного описания формата. */}
+          <div className="exp-hero__description">
+            <p>Уменьшаем носогубки, отёчность и тяжесть средней части лица.</p>
+            <p>Возвращаем лицу свежий и отдохнувший вид.</p>
+          </div>
+          {/* Явная CTA-кнопка вместо декоративного круга. */}
+          <a className="exp-hero__cta exp-hero__cta--pill" href="#price" aria-label="Принять участие — перейти к стоимости интенсива">
+            <span className="exp-hero__cta-label">Принять участие</span>
+            <span className="exp-hero__cta-icon" aria-hidden="true">↗</span>
           </a>
         </div>
         <ul className="exp-hero__benefits" aria-label="Преимущества программы">

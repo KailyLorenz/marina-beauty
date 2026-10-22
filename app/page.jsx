@@ -10,7 +10,7 @@ import ConcernsSection from '../components/sections/ConcernsSection';
 import FloatingConcerns from '../components/sections/FloatingConcerns';
 import MarinaTransformation from '../components/sections/MarinaTransformation';
 import ReasonsSection from '../components/sections/ReasonsSection';
-import EditorialQuote from '../components/sections/EditorialQuote';
+// Цитата убрана из страницы по замечаниям Марины (исходный компонент сохранён).
 import ApproachSection from '../components/sections/ApproachSection';
 import ResultsSection from '../components/sections/ResultsSection';
 import ProgramSection from '../components/sections/ProgramSection';
@@ -44,16 +44,17 @@ export default function Home() {
       <HeroSection />
       <div className="ribbon"><span>ЛИЦО</span><i>✳</i><span>ШЕЯ</span><i>✳</i><span>ОСАНКА</span><i>✳</i><span>ВНИМАНИЕ К СЕБЕ</span></div>
 
-      <MarinaTransformation />
       <div className="mc-float-shell"><FloatingConcerns /></div>
       <ReasonsSection />
       <ConcernsSection />
-      <EditorialQuote />
+
+
       <ApproachSection />
+      <MarinaTransformation />
       <ResultsSection />
       <ProgramSection />
       <AuthorSection />
-      <FormatSection />
+      <FormatSection openDialog={openDialog} />
       <PriceSection openDialog={openDialog} />
       <FaqSection openDialog={openDialog} />
       <FinalCtaSection openDialog={openDialog} />

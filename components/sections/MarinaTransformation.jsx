@@ -222,12 +222,12 @@ export default function MarinaTransformation() {
   return (
     <section className="mk-story" id="my-story" aria-labelledby="mk-story-title" ref={rootRef}>
       <div className="mk-story__heading">
-        <h2 id="mk-story-title">Однажды я увидела <em>другое отражение.</em></h2>
+        <h2 id="mk-story-title">Сначала я проверила <em>этот подход на себе.</em></h2>
       </div>
       <div className="mk-story__inner">
         <div className="mk-story__copy">
-          <p className="mk-story__lead">Я заметила, как меняется моё лицо. И вместо того, чтобы просто смириться с этим, мне захотелось разобраться — что происходит и как я могу себе помочь.</p>
-          <p className="mk-story__body">Так начался мой путь к бережной работе с лицом, шеей и осанкой. Сегодня я делюсь тем, что узнала и продолжаю практиковать сама.</p>
+          <p className="mk-story__lead">Когда я сама заметила носогубки, отёчность и то, что лицо стало выглядеть уставшим и «поплыло» вниз, я начала разбираться, почему это происходит.</p>
+          <p className="mk-story__body">Так я пришла к комплексной работе с мышцами лица, шеей и осанкой — и сначала проверила этот подход на себе.</p>
         </div>
 
         <figure className="mk-story__visual">
@@ -248,7 +248,7 @@ export default function MarinaTransformation() {
               <canvas className="mk-story__dust" ref={canvasRef} aria-hidden="true" />
               <span className="mk-story__scrim" aria-hidden="true" />
               <span className="mk-story__photo-label">{current ? 'Сейчас' : 'Тогда'}</span>
-              <span className="mk-story__photo-caption"><small>МОЁ ОТРАЖЕНИЕ</small><span>{current ? 'И я увидела себя иначе.' : 'У каждой истории есть продолжение.'}</span><i className="mk-story__progress" aria-hidden="true"><i ref={progressRef} /></i></span>
+
             </button>
             <div className="mk-story__controls" role="group" aria-label="Выбрать фотографию">
               <div className="mk-story__switch" role="group" aria-label="Тогда или сейчас">
@@ -281,9 +281,6 @@ export default function MarinaTransformation() {
               </button>
             </div>
           </div>
-          <figcaption className="mk-story__meta">
-            <span ref={statusRef} role="status" aria-live="polite">Моё фото тогда · переход через 5 секунд</span>
-          </figcaption>
         </figure>
       </div>
     </section>

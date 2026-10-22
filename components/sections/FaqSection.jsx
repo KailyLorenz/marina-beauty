@@ -8,7 +8,7 @@ export default function FaqSection({openDialog}){
   <div className="ed-faq__wrap">
    <div className="ed-faq__head"><SectionChip>Вопросы</SectionChip><h2 id="ed-faq-title">Остались <em>вопросы?</em></h2><p>Всё, что важно знать до начала интенсива.</p></div>
    <div className="ed-faq__list">{faqs.map((item,index)=><FaqItem key={`${index}-${item[0]}`} item={item} index={index} onContra={()=>openDialog?.('contra')}/>)}</div>
-   <p className="ed-faq__bottom">Не нашли ответ? <a href="#contact">Напишите мне ↗</a></p>
+
   </div>
  </section>
 }

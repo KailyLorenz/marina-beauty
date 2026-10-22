@@ -35,11 +35,7 @@ export default function PriceSection({ openDialog }) {
 
   return (
     <section className="mk-price" id="price" aria-labelledby="mk-price-heading">
-      <div className="mk-price__heading">
-        <SectionChip>Участие</SectionChip>
-        <h2 id="mk-price-heading">Время <em>для себя.</em></h2>
-      </div>
-      <div className="mk-price__shell">
+<div className="mk-price__shell">
         <div className="mk-price__intro">
           <figure className="mk-price__portrait">
             <img
@@ -51,27 +47,16 @@ export default function PriceSection({ openDialog }) {
               alt="Марина в светлой студии"
             />
           </figure>
-          <p className="mk-price__lead">
-            Пять недель практики для лица, шеи и осанки — в удобном для вас ритме.
-          </p>
-          <div className="mk-price__rule" aria-hidden="true" />
-          <p className="mk-price__aside">Начните с малого.<br />Уделите себе 15 минут в день.</p>
+
         </div>
 
         <div className="mk-price__card">
-          <div className="mk-price__card-head">
-            <span>УЧАСТИЕ В ИНТЕНСИВЕ</span>
-            <span className="mk-price__edition">5 НЕДЕЛЬ</span>
-          </div>
-
-          <h3>Лицо. Шея. Осанка.</h3>
-          <p className="mk-price__card-subtitle">Полная программа с уроками и поддержкой</p>
-
+          <h2 className="mk-price__product-title" id="mk-price-heading">5-недельный интенсив <em>«Носогубные складки»</em></h2>
           <div className="mk-price__price-block">
             {offerActive && (
               <div className="mk-price__offer-label">
                 <span className="mk-price__offer-dot" aria-hidden="true" />
-                Специальная стоимость участия
+                Специальная стоимость действует до 1 ноября 2026
               </div>
             )}
 
@@ -100,15 +85,10 @@ export default function PriceSection({ openDialog }) {
             </div>
           )}
 
-          <div className="mk-price__includes-title">В программу входит</div>
-          <ul className="mk-price__benefits">
-            {benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
-          </ul>
-
           <button className="mk-price__cta" type="button" onClick={() => openDialog?.('payment')}>
             <span>Принять участие</span><span aria-hidden="true">↗</span>
           </button>
-          <p className="mk-price__footer">Онлайн-обучение на платформе GetCourse</p>
+          <p className="mk-price__footer">Доступ к программе — 3 месяца · Обучение на GetCourse</p>
         </div>
       </div>
     </section>

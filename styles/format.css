@@ -1,36 +1,148 @@
-.ed-format { padding:clamp(75px,9vw,132px) 0; background:var(--paper); color:var(--ink);scroll-margin-top:70px; }
-.ed-format__wrap { width:min(88%,1240px);margin-inline:auto; }
-.ed-format__head { text-align:center;max-width:700px;margin:0 auto clamp(37px,5vw,61px); }
-.ed-format__head h2 { margin:0;font:400 clamp(49px,5.6vw,81px)/1.01 var(--font-display);letter-spacing:-.045em; }
-.ed-format__head h2 em { color:inherit; }
-.ed-format__head>p:last-child { max-width:530px;margin:15px auto 0;color:var(--muted);font:400 15px/1.7 var(--font-body); }
-.ed-format__grid { display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:17px; }
-.ed-format__visual { min-width:0;position:relative;overflow:hidden;margin:0;border-radius:17px;min-height:510px;background:var(--card-selected); }
-.ed-format__visual img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 36%; }
-.ed-format__visual::after { content:'';position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(35,27,22,.38));pointer-events:none; }
-.ed-format__visual figcaption { position:absolute;bottom:27px;left:25px;right:18px;color:#fff;z-index:1;font:400 clamp(25px,2.2vw,34px)/1.1 var(--font-display); }
-.ed-format__cards { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px; }
-.ed-format__card { display:flex;flex-direction:column;min-width:0;min-height:245px;padding:clamp(22px,2.25vw,32px);border-radius:17px;background:var(--card-selected); }
-.ed-format__card>span { color:var(--secondary);font:600 10px/1.4 var(--font-body);letter-spacing:.15em; }
-.ed-format__card h3 { margin:auto 0 12px;font:400 clamp(25px,2.2vw,32px)/1.15 var(--font-display); }
-.ed-format__card p { margin:0;color:var(--muted);font:400 13px/1.7 var(--font-body); }
-.ed-format__facts { margin-top:24px;padding:24px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;border-top:1px solid var(--line); }
-.ed-format__facts span { font-size:12px;color:var(--muted); }
-.ed-format__facts strong { color:var(--secondary-ink);font:400 32px/1 var(--font-display);margin-right:7px; }
-@media (max-width:930px){ .ed-format__grid{grid-template-columns:1fr}.ed-format__visual{min-height:400px;aspect-ratio:1.6}.ed-format__visual img{object-position:center 38%}.ed-format__card{min-height:220px} }
-@media (max-width:580px){ .ed-format{padding:70px 0}.ed-format__wrap{width:calc(100% - 36px)}.ed-format__head h2{font-size:49px}.ed-format__visual{min-height:340px;aspect-ratio:1.15}.ed-format__cards{gap:10px}.ed-format__card{padding:17px;min-height:215px}.ed-format__card h3{font-size:23px}.ed-format__card p{font-size:12px}.ed-format__facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 10px}.ed-format__facts strong{font-size:31px} }
-@media(max-width:385px){.ed-format__cards{grid-template-columns:1fr}.ed-format__card{min-height:157px}.ed-format__card h3{margin:18px 0 10px}}
+/* FORMAT — photo + four cards + CTA. One source of layout rules. */
+.ed-format {
+  padding: clamp(58px, 6.6vw, 92px) 0;
+  background: var(--paper);
+  color: var(--ink);
+  scroll-margin-top: 76px;
+}
+.ed-format__wrap { width: min(90%, 1240px); margin-inline: auto; }
+.ed-format__head {
+  max-width: 740px;
+  margin: 0 auto clamp(28px, 3.5vw, 42px);
+  text-align: center;
+}
+.ed-format__head h2 {
+  margin: 0;
+  font: 400 clamp(33px, 3.2vw, 48px)/1.08 var(--font-display);
+  letter-spacing: -.033em;
+  text-wrap: balance;
+}
 
-.ed-format__platform { text-align:center;margin:25px 0 0;color:var(--muted);font:400 12px/1.6 var(--font-body); }
+/* Image: 1365x2048, aspect ratio 0.6665. The new narrower column
+   matches it instead of filling the extra width with empty background. */
+.ed-format--cards .ed-format__grid {
+  display: grid;
+  grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr);
+  gap: clamp(14px, 1.7vw, 22px);
+  align-items: stretch;
+}
+.ed-format--cards .ed-format__visual {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  aspect-ratio: 1365 / 2048;
+  overflow: hidden;
+  margin: 0;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: none;
+}
+.ed-format--cards .ed-format__visual img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
+  background: transparent;
+}
+.ed-format--cards .ed-format__visual::after,
+.ed-format--cards .ed-format__visual figcaption { display: none; }
 
-/* Better mobile rhythm: 1-column informative cards, photo fits on one screen. */
-@media(max-width:620px) {
-  .ed-format__head h2 { font-size:clamp(45px,11vw,60px); }
-  .ed-format__grid { gap:14px; }
-  .ed-format__visual { min-height:0; aspect-ratio:1.18; border-radius:20px; }
-  .ed-format__cards { grid-template-columns:1fr; gap:10px; }
-  .ed-format__card { min-height:0; border-radius:16px; padding:22px; }
-  .ed-format__card h3 { font-size:clamp(28px,7vw,34px); margin:14px 0 8px; }
-  .ed-format__card p { font-size:13px; line-height:1.7; }
-  .ed-format__facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
+/* The CTA belongs to the right column, directly after the four cards. */
+.ed-format--cards .ed-format__right {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 18px;
+}
+.ed-format--cards .ed-format__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 1.35vw, 18px);
+  flex: 1;
+}
+.ed-format--cards .ed-format__card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(21px, 2.1vw, 30px);
+  border-radius: 20px;
+  background: var(--card-selected);
+}
+.ed-format--cards .ed-format__card > span {
+  color: var(--secondary);
+  font: 600 10px/1.4 var(--font-body);
+  letter-spacing: .15em;
+}
+.ed-format--cards .ed-format__card h3 {
+  margin: auto 0 12px;
+  font: 400 clamp(22px, 1.9vw, 31px)/1.15 var(--font-display);
+}
+.ed-format--cards .ed-format__card p {
+  margin: 0;
+  color: var(--muted);
+  font: 400 13px/1.65 var(--font-body);
+}
+.ed-format--cards .ed-format__cta-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+.ed-format--cards .ed-format__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 56px;
+  padding: 15px 26px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--hero-button-start), var(--hero-button-end));
+  color: var(--hero-button-text);
+  font: 600 14px/1.35 var(--font-body);
+  box-shadow: var(--hero-button-shadow);
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.ed-format--cards .ed-format__cta > span:last-child { font-size: 19px; }
+@media (hover: hover) {
+  .ed-format--cards .ed-format__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hero-button-shadow-hover);
+  }
+}
+.ed-format--cards .ed-format__cta:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 4px;
+}
+
+@media (max-width: 930px) {
+  .ed-format--cards .ed-format__grid { grid-template-columns: minmax(0, 1fr); }
+  .ed-format--cards .ed-format__visual {
+    width: min(100%, 395px);
+    justify-self: center;
+  }
+  .ed-format--cards .ed-format__cards { grid-template-rows: auto; }
+  .ed-format--cards .ed-format__card { min-height: 180px; }
+}
+@media (max-width: 620px) {
+  .ed-format { padding: 58px 0 66px; }
+  .ed-format__wrap { width: calc(100% - 36px); }
+  .ed-format__head h2 { font-size: clamp(31px, 8vw, 37px); }
+  .ed-format--cards .ed-format__visual { width: min(100%, 345px); }
+  .ed-format--cards .ed-format__cards { grid-template-columns: 1fr; gap: 10px; }
+  .ed-format--cards .ed-format__card { min-height: 0; padding: 20px; border-radius: 16px; }
+  .ed-format--cards .ed-format__card h3 { margin: 14px 0 8px; font-size: 25px; }
+  .ed-format--cards .ed-format__card p { font-size: 13px; }
+  .ed-format--cards .ed-format__cta { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed-format--cards .ed-format__cta { transition: none; }
 }
